@@ -1,0 +1,106 @@
+# Font configuration (changes require restart)
+font:
+  # The normal (roman) font face to use.
+  normal:
+    family: FiraCode Nerd Font Mono
+    # Style can be specified to pick a specific face.
+    style: Regular
+
+  # The bold font face
+  bold:
+    family: FiraCode Nerd Font Mono
+    # Style can be specified to pick a specific face.
+    # style: Bold
+
+  # The italic font face
+  italic:
+    family: FiraCode Nerd Font Mono
+    # Style can be specified to pick a specific face.
+    # style: Italic
+  size: 13.0
+
+  # Better font rendering for mac
+  use_thin_strokes: true
+
+  offset:
+    x: 0
+    y: 0
+
+colors:
+  # Default colors
+  primary:
+    # background: '#1e2127'
+    background: '#282b34'
+    foreground: '#abb2bf'
+    #
+  # Normal colors
+  normal:
+    black: '#1e2127'
+    red: '#e06c75'
+    green: '#98c379'
+    yellow: '#d19a66'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#abb2bf'
+
+  # # Bright colors
+  bright:
+    black: '#5c6370'
+    red: '#e06c75'
+    green: '#98c379'
+    yellow: '#d19a66'
+    blue: '#61afef'
+    magenta: '#c678dd'
+    cyan: '#56b6c2'
+    white: '#ffffff'
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+# Background
+background_opacity: 1
+
+# Shell
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - -l
+#     - -c
+#     - 'tmux attach || tmux'
+
+# Window fullscreen
+window:
+  # startup_mode: Maximized
+  startup_mode: Fullscreen
+  padding:
+    x: 2
+    y: 2
+  dynamic_title: true
+
+selection:
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: true
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 10000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 10
+
+debug:
+  # Should display the render timer
+  render_timer: false
+
+# Key bindings
+key_bindings:
+  - { key: Left, mods: Alt, chars: "\x1bb" }
+  - { key: Right, mods: Alt, chars: "\x1bf" }
+  - { key: Left, mods: Command, chars: "\x1bOH", mode: AppCursor } # Home
+  - { key: Right, mods: Command, chars: "\x1bOF", mode: AppCursor } # End "\x1b0" }

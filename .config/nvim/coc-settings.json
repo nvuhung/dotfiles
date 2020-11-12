@@ -1,0 +1,29 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "javascript",
+    "graphql",
+    "html",
+    "yaml",
+    "json",
+    "svelte"
+  ],
+
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "coc.preferences.hoverTarget": "float",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+
+  "prettier.singleQuote": true,
+  "eslint.autoFixOnSave": true,
+
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"]
+}
