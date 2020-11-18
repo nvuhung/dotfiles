@@ -21,6 +21,8 @@
     \ 'coc-eslint',
     \ 'coc-svelte',
     \ 'coc-go',
+    \ 'coc-python',
+    \ 'coc-pyright',
     \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

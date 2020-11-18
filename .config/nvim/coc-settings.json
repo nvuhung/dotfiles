@@ -7,8 +7,10 @@
     "html",
     "yaml",
     "json",
-    "svelte"
+    "svelte",
+    "python"
   ],
+  "coc.preferences.formatOnType": true,
 
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
@@ -25,5 +27,9 @@
   "prettier.singleQuote": true,
   "eslint.autoFixOnSave": true,
 
-  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"]
+  "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+
+  "python.linting.enabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "black"
 }
