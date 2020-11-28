@@ -30,6 +30,21 @@ function! s:build_go_files()
   endif
 endfunction
 
+" Debug
+let g:go_debug_windows = {
+      \ 'vars':       'rightbelow 60vnew',
+      \ 'stack':      'rightbelow 10new',
+\ }
+
+" Key map
+:nnoremap <C-g>b :GoDebugBreakpoint<CR>
+:nnoremap <C-g>s :GoDebugStart<CR>
+:nnoremap <C-g>e :GoDebugStop<CR>
+:nnoremap <C-g>n :GoDebugStep<CR>
+:nnoremap <C-g>i :GoDebugStep<CR>
+:nnoremap <C-g>o :GoDebugStepOut<CR>
+:nnoremap <C-g>c :GoDebugContinue<CR>
+
 " Map keys for most used commands.
 " Ex: `\b` for building, `\r` for running and `\b` for running test.
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
