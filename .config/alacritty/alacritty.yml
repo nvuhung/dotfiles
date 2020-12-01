@@ -30,12 +30,12 @@ colors:
   # Default colors
   primary:
     # background: '#1e2127'
-    background: '#282b34'
+    background: '#1b2b34'
     foreground: '#abb2bf'
     #
   # Normal colors
   normal:
-    black: '#1e2127'
+    black: '#1b2b34'
     red: '#e06c75'
     green: '#98c379'
     yellow: '#d19a66'
