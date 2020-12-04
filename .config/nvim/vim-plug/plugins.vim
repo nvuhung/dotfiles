@@ -62,5 +62,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Plug 'brooth/far.vim'
     " Vim Go
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    " Ranger
+    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 
 call plug#end()
