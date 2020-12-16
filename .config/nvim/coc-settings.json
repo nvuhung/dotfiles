@@ -28,6 +28,11 @@
   "eslint.autoFixOnSave": true,
 
   "snippets.ultisnips.directories": ["UltiSnips", "~/.config/nvim/snips"],
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
+    "typescript": ["javascript", "javascript-jasmine-arrow"]
+  },
 
   "python.linting.enabled": false,
   "python.linting.pylintEnabled": false,
