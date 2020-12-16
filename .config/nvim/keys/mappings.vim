@@ -84,4 +84,5 @@ xnoremap J :move '>+1<CR>gv-gv
 map <C-P> :Files<CR>
 map <C-B> :Buffers<CR>
 map <C-F> :Rg<CR>
+map <C-G> :Ag<CR>
 
