@@ -6,11 +6,8 @@
     \ 'coc-tsserver',
     \ 'coc-html',
     \ 'coc-css',
-    \ 'coc-emoji',
     \ 'coc-cssmodules',
-    \ 'coc-yaml',
     \ 'coc-explorer',
-    \ 'coc-svg',
     \ 'coc-prettier',
     \ 'coc-vimlsp',
     \ 'coc-yank',
@@ -23,6 +20,7 @@
     \ 'coc-go',
     \ 'coc-python',
     \ 'coc-pyright',
+    \ 'coc-vetur',
     \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
