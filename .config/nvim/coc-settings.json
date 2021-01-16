@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "scss",
     "markdown",
     "javascript",
     "graphql",
@@ -32,6 +33,18 @@
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
     "typescript": ["javascript", "javascript-jasmine-arrow"]
+  },
+
+  "explorer.icon.customIcons": {
+    "icons": {},
+    "extensions": {
+      "txml": "xml",
+      "tcss": "css"
+    },
+    "filenames": {},
+    "dirnames": {},
+    "patternMatches": {},
+    "dirPatternMatches": {}
   },
 
   "python.linting.enabled": false,

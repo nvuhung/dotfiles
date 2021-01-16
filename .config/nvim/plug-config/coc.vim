@@ -1,6 +1,5 @@
   let g:coc_global_extensions = [
     \ 'coc-snippets',
-    \ 'coc-actions',
     \ 'coc-lists',
     \ 'coc-emmet',
     \ 'coc-tsserver',
@@ -20,7 +19,6 @@
     \ 'coc-go',
     \ 'coc-python',
     \ 'coc-pyright',
-    \ 'coc-vetur',
     \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -84,6 +82,8 @@ augroup end
 
 " Remap keys for applying codeAction to the current line.
 nmap <C-e> <Plug>(coc-codeaction)
+" CodeAction to the selected region (Shift E E)
+nmap <S-e> <Plug>(coc-codeaction-selected)
 " Apply AutoFix to problem on the current line.
 " nmap <leader>qf  <Plug>(coc-fix-current)
 
