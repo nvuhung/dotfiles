@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Themes
     " Plug 'joshdick/onedark.vim'
     Plug 'mhartington/oceanic-next'
+    " Plug 'arcticicestudio/nord-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     " Colorizer
