@@ -14,7 +14,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     " Themes
     " Plug 'joshdick/onedark.vim'
-    Plug 'mhartington/oceanic-next'
+    " Plug 'mhartington/oceanic-next'
+    Plug 'sonph/onehalf', { 'rtp': 'vim' }
     " Plug 'arcticicestudio/nord-vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'

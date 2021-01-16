@@ -5,8 +5,9 @@ source $HOME/.config/nvim/keys/mappings.vim
 
 " Themes
 " source $HOME/.config/nvim/themes/onedark.vim
-source $HOME/.config/nvim/themes/ocean-next.vim
+" source $HOME/.config/nvim/themes/ocean-next.vim
 " source $HOME/.config/nvim/themes/nord.vim
+source $HOME/.config/nvim/themes/onehalf.vim
 source $HOME/.config/nvim/themes/airline.vim
 
 " Plugins

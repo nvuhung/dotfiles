@@ -27,33 +27,29 @@ font:
     y: 0
 
 colors:
-  # Default colors
   primary:
-    # background: '#1e2127'
-    background: '#1b2b34'
-    foreground: '#abb2bf'
-    #
-  # Normal colors
-  normal:
-    black: '#1b2b34'
-    red: '#e06c75'
-    green: '#98c379'
-    yellow: '#d19a66'
-    blue: '#61afef'
-    magenta: '#c678dd'
-    cyan: '#56b6c2'
-    white: '#abb2bf'
+    background: '0x282c34'
+    foreground: '0xdcdfe4'
 
-  # # Bright colors
+  normal:
+    black: '0x282c34'
+    red: '0xe06c75'
+    green: '0x98c379'
+    yellow: '0xe5c07b'
+    blue: '0x61afef'
+    magenta: '0xc678dd'
+    cyan: '0x56b6c2'
+    white: '0xdcdfe4'
+
   bright:
-    black: '#5c6370'
-    red: '#e06c75'
-    green: '#98c379'
-    yellow: '#d19a66'
-    blue: '#61afef'
-    magenta: '#c678dd'
-    cyan: '#56b6c2'
-    white: '#ffffff'
+    black: '0x282c34'
+    red: '0xe06c75'
+    green: '0x98c379'
+    yellow: '0xe5c07b'
+    blue: '0x61afef'
+    magenta: '0xc678dd'
+    cyan: '0x56b6c2'
+    white: '0xdcdfe4'
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
