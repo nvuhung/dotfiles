@@ -3,17 +3,22 @@ let g:far#source='rgnvim'
 " let g:far#source='vimgrep'
 " let g:far#source='ag'
 
+" shortcut for far.vim find
+nnoremap <silent> <Leader>c :Farr --source=rgnvim<cr>
+
 set lazyredraw            " improve scrolling performance when navigating through large results
+set regexpengine=1        " use old regexp engine
+set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
 
 let g:far#window_width=50
 " Use %:p with buffer option only
-let g:far#file_mask_favorites=['**/*.js', '**/*.ts', '**/*.tsx', '%:p', '**/*.*',  '**/*.css', '**/*.html' ]
+let g:far#file_mask_favorites=['**/*.js', '**/*.jsx', '**/*.txml', '**/*.tcss', '**/*.json' ,'**/*.ts', '**/*.tsx', '%:p', '**/*.*',  '**/*.css', '**/*.html' ]
 let g:far#window_min_content_width=30
 let g:far#enable_undo=1
 
 " let g:far#ignore_files=['$HOME/.config/nvim/utils/farignore']
 " let g:far#ignore_files='~/.config/nvim/utils/farignore'
-set wildignore+=*.zip,*.png,*.jpg,*.gif,*.pdf,*DS_Store*,*/.git/*,*/node_modules/*,*/build/*,package-lock.json
+set wildignore+=*.zip,*.png,*.jpg,*.gif,*.pdf,*DS_Store*,*/.git/*,*/node_modules/*,*/build/*,package-lock.json,*/lib/,*/android/,*/ios/,yarn.lock
 
 "     Below are the default mappings and corresponding variable names in
 

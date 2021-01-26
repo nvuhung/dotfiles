@@ -61,7 +61,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Bbye (Buffer Bye)
     Plug 'moll/vim-bbye'
     " Find and replace
-    " Plug 'brooth/far.vim'
+    " Plug 'ChristianChiarulli/far.vim'
+    Plug 'brooth/far.vim'
     " Vim Go
     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Ranger
