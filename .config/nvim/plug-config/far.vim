@@ -11,6 +11,7 @@ set regexpengine=1        " use old regexp engine
 set ignorecase smartcase  " ignore case only when the pattern contains no capital letters
 
 let g:far#window_width=50
+let g:far#default_file_mask='**/*.js'
 " Use %:p with buffer option only
 let g:far#file_mask_favorites=['**/*.js', '**/*.jsx', '**/*.txml', '**/*.tcss', '**/*.json' ,'**/*.ts', '**/*.tsx', '%:p', '**/*.*',  '**/*.css', '**/*.html' ]
 let g:far#window_min_content_width=30
