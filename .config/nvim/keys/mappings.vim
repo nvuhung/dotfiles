@@ -20,9 +20,9 @@ inoremap kj <Esc>
 nnoremap <Leader>a ggVG<CR>
 
 " TAB in general mode will move to text buffer
-nnoremap <TAB> :bnext<CR>
+" nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
-nnoremap <S-TAB> :bprevious<CR>
+" nnoremap <S-TAB> :bprevious<CR>
 " Close all buffers
 nnoremap <C-w><C-k> :bufdo :Bdelete<CR>
 " Close current buffer
@@ -39,9 +39,9 @@ nnoremap <silent> <CS-s> :wa<CR>
 " Alternate way to quit
 " nnoremap <C-Q> :wq!<CR>
 " Use control-c instead of escape
-nnoremap <C-c> <Esc>
+" nnoremap <C-c> <Esc>
 " <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Better tabbing
 vnoremap < <gv
@@ -81,8 +81,28 @@ xnoremap J :move '>+1<CR>gv-gv
 " imap <S-Right> <Esc>v<Right>
 
 " Plugins
-map <C-P> :Files<CR>
-map <C-B> :Buffers<CR>
-map <C-F> :Rg<CR>
-map <C-G> :Ag<CR>
+" map <C-P> :Files<CR>
+" map <C-B> :Buffers<CR>
+" map <C-F> :Rg<CR>
+" map <C-G> :Ag<CR>
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" nnoremap <leader>fl <cmd>Telescope git_files<cr>
 
+" Snips
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+" nmap        t   <Plug>(vsnip-select-text)
+" xmap        t   <Plug>(vsnip-select-text)
+" nmap        T   <Plug>(vsnip-cut-text)
+" xmap        T   <Plug>(vsnip-cut-text)
+
+" Bufferline
+nnoremap <TAB> :BufferLineCycleNext<CR>
+nnoremap <S-TAB> :BufferLineCyclePrev<CR>
+nnoremap gb :BufferLinePick<CR>
