@@ -1,29 +1,33 @@
-" auto-install vim-plug
-if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  "autocmd VimEnter * PlugInstall
-  "autocmd VimEnter * PlugInstall | source $MYVIMRC
+"---- vim-plug setup  ----
+let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+if has('win32')&&!has('win64')
+  let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
+else
+  let curl_exists=expand('curl')
 endif
 
+if !filereadable(vimplug_exists)
+  if !executable(curl_exists)
+    echoerr "You have to install curl or first install vim-plug yourself!"
+    execute "q!"
+  endif
+  echo "Installing Vim-Plug..."
+  echo ""
+  silent exec "!"curl_exists" -fLo " . shellescape(vimplug_exists) . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  let g:not_finish_vimplug = "yes"
+
+  autocmd VimEnter * PlugInstall
+endif
+
+" Plugins
 call plug#begin('~/.config/nvim/autoload/plugged')
 
-    " Better Syntax Support
-    Plug 'sheerun/vim-polyglot'
     " Auto pairs for '(' '[' '{'
     Plug 'jiangmiao/auto-pairs'
     " Themes
-    " Plug 'joshdick/onedark.vim'
-    " Plug 'mhartington/oceanic-next'
-    Plug 'sonph/onehalf', { 'rtp': 'vim' }
-    " Plug 'arcticicestudio/nord-vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    Plug 'sainnhe/sonokai'
     " Colorizer
     Plug 'norcalli/nvim-colorizer.lua'
-    " Coc
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     " Comment
     Plug 'tpope/vim-commentary'
     " Git
@@ -31,31 +35,19 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
-    " Snippets
-    Plug 'honza/vim-snippets'
-    " Have the file system follow you around
-    Plug 'airblade/vim-rooter'
-    " FZF
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    " Easymotion
-    " Plug 'easymotion/vim-easymotion'
-    " Cool Icons
+    " Icons
     Plug 'ryanoasis/vim-devicons'
+    Plug 'kyazdani42/nvim-web-devicons' " for file icons
     " Closetags
     Plug 'alvan/vim-closetag'
     " Smooth scroll
     Plug 'psliwka/vim-smoothie'
-    " editorconfig
-    " Plug 'editorconfig/editorconfig-vim'
     " Surround
     Plug 'tpope/vim-surround'
     " Sneak
     Plug 'justinmk/vim-sneak'
     " Text Navigation
     Plug 'unblevable/quick-scope' 
-    " Better tabline
-    Plug 'mg979/vim-xtabline'
     " Auto change html tags
     Plug 'AndrewRadev/tagalong.vim'   
     " Bbye (Buffer Bye)
@@ -63,9 +55,35 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Find and replace
     " Plug 'ChristianChiarulli/far.vim'
     Plug 'brooth/far.vim'
-    " Vim Go
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
     " Ranger
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+    " Bufferline
+    Plug 'akinsho/nvim-bufferline.lua'
+    " LSP
+    Plug 'neovim/nvim-lspconfig'
+    " Completion
+    Plug 'hrsh7th/nvim-compe'
+    " Code actions
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'kosayoda/nvim-lightbulb'
+    " Snippets
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
+    " Fuzzy finder
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    " Syntax
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    " File explorer
+    Plug 'kyazdani42/nvim-tree.lua'
+    " Status line
+    Plug 'glepnir/galaxyline.nvim'
 
 call plug#end()
+
+" Automatically install missing plugins on startup
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
