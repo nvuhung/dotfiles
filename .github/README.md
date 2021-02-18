@@ -23,6 +23,8 @@
 Neovim version 0.5
 
 # TODO
-[] Code action to fix error
-[] NVIM Tree file path
-[] EFM format not stable (when file has error)
+[  ] Code action to fix error
+
+[  ] NVIM Tree file path
+
+[  ] EFM format not stable (when file has error)
