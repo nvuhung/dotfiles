@@ -20,6 +20,9 @@
 
 # Neovim
 
-Neovim version 0.4: https://github.com/neovim/neovim/releases/tag/v0.4.4
+Neovim version 0.5
 
-## Theme: [onehalf](https://github.com/sonph/onehalf)
+# TODO
+[] Code action to fix error
+[] NVIM Tree file path
+[] EFM format not stable (when file has error)
