@@ -76,7 +76,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Syntax
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     " File explorer
-    Plug 'kyazdani42/nvim-tree.lua'
+    Plug 'kyazdani42/nvim-tree.lua', {'commit': '491fd68d62cebd4a07642cc052028d9d3b55f62e'}
     " Status line
     Plug 'glepnir/galaxyline.nvim'
 
