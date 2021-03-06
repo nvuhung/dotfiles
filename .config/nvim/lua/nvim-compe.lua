@@ -15,10 +15,11 @@ require'compe'.setup {
 
   source = {
     path = true;
-    buffer = {priority = 1},
+    buffer = {priority = 100},
     calc = true;
-    vsnip = {priority = 1000},
+    vsnip = {priority = 300},
     nvim_lsp = true;
+    nvim_lsp = {priority = 200},
     nvim_lua = true;
     spell = true;
     tags = true;
