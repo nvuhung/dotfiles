@@ -18,28 +18,23 @@ let g:nvim_tree_show_icons = {
     \ 'files': 1,
     \ }
 
-let g:nvim_tree_bindings = {
-    \ 'edit':            ['<CR>', 'o', 'l'],
-    \ 'edit_vsplit':     '<C-v>',
-    \ 'edit_split':      '<C-x>',
-    \ 'edit_tab':        '<C-t>',
-    \ 'close_node':      ['<S-CR>', '<BS>', 'h'],
-    \ 'toggle_ignored':  'I',
-    \ 'toggle_dotfiles': 'H',
-    \ 'refresh':         'R',
-    \ 'preview':         '<Tab>',
-    \ 'cd':              '<C-]>',
-    \ 'create':          'a',
-    \ 'remove':          'd',
-    \ 'rename':          'r',
-    \ 'cut':             'x',
-    \ 'copy':            'c',
-    \ 'paste':           'p',
-    \ 'prev_git_item':   '[c',
-    \ 'next_git_item':   ']c',
-    \ 'dir_up':          '-',
-    \ 'close':           'q',
-    \ }
+lua << EOF
+  local function get_lua_cb(cb_name)
+    return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
+  end
+
+  vim.g.nvim_tree_bindings = {
+    ["<cr>"] = get_lua_cb("edit"),
+    ["<s-cr>"] = get_lua_cb("close_node"),
+    ["o"] = get_lua_cb("edit"),
+    ["<BS>"] = get_lua_cb("close_node"),
+    ["l"] = get_lua_cb("edit"),
+    ["h"] = get_lua_cb("close_node"),
+    ["|"] = get_lua_cb("vsplit"),
+    ["_"] = get_lua_cb("split"),
+  }
+
+EOF
 
 let g:nvim_tree_icons = {
     \ 'default': '',
@@ -54,6 +49,8 @@ let g:nvim_tree_icons = {
     \ 'folder': {
     \   'default': "",
     \   'open': "",
+    \   'empty': "",
+    \   'empty_open': "",
     \   'symlink': "",
     \   }
     \ }
@@ -65,3 +62,4 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 set termguicolors
 
 " highlight NvimTreeFolderIcon guibg=blue
+
