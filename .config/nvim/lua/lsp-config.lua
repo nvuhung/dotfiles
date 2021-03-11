@@ -202,7 +202,7 @@ lspconfig.vimls.setup {on_attach = on_attach}
 -- https://github.com/vscode-langservers/vscode-json-languageserver
 lspconfig.jsonls.setup {
     on_attach = on_attach,
-    cmd = {"json-languageserver", "--stdio"}
+    cmd = { "vscode-json-languageserver", "--stdio" }
 }
 
 -- https://github.com/vscode-langservers/vscode-css-languageserver-bin
@@ -250,4 +250,4 @@ lspconfig.efm.setup {
     }
 }
 
-lspconfig.clangd.setup {on_attach = on_attach}
+-- lspconfig.clangd.setup {on_attach = on_attach}
