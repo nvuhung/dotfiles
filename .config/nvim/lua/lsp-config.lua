@@ -10,6 +10,7 @@ local map = function(mode, key, result, noremap, expr)
     vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = noremap, silent = true, expr = expr})
 end
 
+-- Icons
 vim.lsp.protocol.CompletionItemKind = {
     " [text]",
     " [method]",
@@ -38,10 +39,10 @@ vim.lsp.protocol.CompletionItemKind = {
     "♛ [type]"
 }
 
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "💢", numhl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "💬", numhl = "LspDiagnosticsDefaultInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text = "💡", numhl = "LspDiagnosticsDefaultHint"})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
+vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
 
 vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
     if err ~= nil or result == nil then
@@ -101,11 +102,11 @@ end
 
 local on_attach = function(client)
     if client.resolved_capabilities.code_action then
+        map('n', '<C-e>', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
         vim.cmd [[augroup CodeAction]]
         vim.cmd [[autocmd! * <buffer>]]
         -- vim.cmd [[autocmd CursorHold * lua require'nvim-lightbulb'.update_lightbulb()]]
         vim.cmd [[augroup END]]
-        -- map('n', '<C-e>', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
     end
     if client.resolved_capabilities.document_formatting then
         vim.cmd [[augroup Format]]
@@ -146,47 +147,46 @@ local on_attach = function(client)
 
 end
 
-function _G.activeLSP()
-    local servers = {}
-    for _, lsp in pairs(vim.lsp.get_active_clients()) do
-        table.insert(servers, {name = lsp.name, id = lsp.id})
-    end
-    _G.dump(servers)
-end
-function _G.bufferActiveLSP()
-    local servers = {}
-    for _, lsp in pairs(vim.lsp.buf_get_clients()) do
-        table.insert(servers, {name = lsp.name, id = lsp.id})
-    end
-    _G.dump(servers)
-end
+-- function _G.activeLSP()
+--     local servers = {}
+--     for _, lsp in pairs(vim.lsp.get_active_clients()) do
+--         table.insert(servers, {name = lsp.name, id = lsp.id})
+--     end
+--     _G.dump(servers)
+-- end
+-- function _G.bufferActiveLSP()
+--     local servers = {}
+--     for _, lsp in pairs(vim.lsp.buf_get_clients()) do
+--         table.insert(servers, {name = lsp.name, id = lsp.id})
+--     end
+--     _G.dump(servers)
+-- end
 
 -- https://github.com/golang/tools/tree/master/gopls
-lspconfig.gopls.setup {
-    on_attach = function(client)
-        client.resolved_capabilities.document_formatting = false
-        on_attach(client)
-    end
-}
+-- lspconfig.gopls.setup {
+--     on_attach = function(client)
+--         client.resolved_capabilities.document_formatting = false
+--         on_attach(client)
+--     end
+-- }
 
 -- https://github.com/palantir/python-language-server
-lspconfig.pyls.setup {
-    on_attach = on_attach,
-    settings = {
-        pyls = {
-            plugins = {
-                pycodestyle = {
-                    enabled = false,
-                    ignore = {
-                        "E501"
-                    }
-                }
-            }
-        }
-    }
-}
-
-lspconfig.pyright.setup {on_attach = on_attach}
+-- lspconfig.pyls.setup {
+--     on_attach = on_attach,
+--     settings = {
+--         pyls = {
+--             plugins = {
+--                 pycodestyle = {
+--                     enabled = false,
+--                     ignore = {
+--                         "E501"
+--                     }
+--                 }
+--             }
+--         }
+--     }
+-- }
+-- lspconfig.pyright.setup {on_attach = on_attach}
 
 -- https://github.com/theia-ide/typescript-language-server
 lspconfig.tsserver.setup {
@@ -214,16 +214,16 @@ lspconfig.html.setup {on_attach = on_attach}
 -- https://github.com/bash-lsp/bash-language-server
 lspconfig.bashls.setup {on_attach = on_attach}
 
-local golint = require "efm/golint"
-local goimports = require "efm/goimports"
-local black = require "efm/black"
-local isort = require "efm/isort"
-local flake8 = require "efm/flake8"
-local mypy = require "efm/mypy"
+-- local golint = require "efm/golint"
+-- local goimports = require "efm/goimports"
+-- local black = require "efm/black"
+-- local isort = require "efm/isort"
+-- local flake8 = require "efm/flake8"
+-- local mypy = require "efm/mypy"
 local prettier = require "efm/prettier"
 local eslint = require "efm/eslint"
 local shellcheck = require "efm/shellcheck"
-local misspell = require "efm/misspell"
+-- local misspell = require "efm/misspell"
 
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup {
@@ -232,9 +232,9 @@ lspconfig.efm.setup {
     settings = {
         rootMarkers = {".git/"},
         languages = {
-            ["="] = {misspell},
-            go = {golint, goimports},
-            python = {black, isort, flake8, mypy},
+            -- ["="] = {misspell},
+            -- go = {golint, goimports},
+            -- python = {black, isort, flake8, mypy},
             typescript = {prettier, eslint},
             javascript = {prettier, eslint},
             typescriptreact = {prettier, eslint},

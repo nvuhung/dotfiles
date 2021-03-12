@@ -16,6 +16,7 @@ source $HOME/.config/nvim/plug-config/far.vim
 source $HOME/.config/nvim/plug-config/nvim-tree.vim
 source $HOME/.config/nvim/plug-config/telescope.vim
 " source $HOME/.config/nvim/plug-config/lspsaga-nvim.vim
+" source $HOME/.config/nvim/plug-config/nvim-lsputils.vim
 source $HOME/.config/nvim/plug-config/nvim-bufferline.vim
 source $HOME/.config/nvim/plug-config/filetype.vim
 
