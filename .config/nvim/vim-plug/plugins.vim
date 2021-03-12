@@ -53,7 +53,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Bbye (Buffer Bye)
     Plug 'moll/vim-bbye'
     " Find and replace
-    " Plug 'ChristianChiarulli/far.vim'
     Plug 'brooth/far.vim'
     " Ranger
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
@@ -64,8 +63,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " Completion
     Plug 'hrsh7th/nvim-compe'
     " Code actions
-    Plug 'glepnir/lspsaga.nvim'
-    Plug 'kosayoda/nvim-lightbulb'
+    " Plug 'glepnir/lspsaga.nvim'
+    " Plug 'kosayoda/nvim-lightbulb'
+    " Plug 'RishabhRD/popfix'
+    " Plug 'RishabhRD/nvim-lsputils'
     " Snippets
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
@@ -75,6 +76,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-telescope/telescope.nvim'
     " Syntax
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     " File explorer
     Plug 'kyazdani42/nvim-tree.lua'
     " Plug 'kyazdani42/nvim-tree.lua', {'commit': '491fd68d62cebd4a07642cc052028d9d3b55f62e'}

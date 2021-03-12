@@ -32,10 +32,10 @@ nnoremap <C-w> :Bdelete<CR>
 nmap <C-L><C-L> :set invrelativenumber<CR>
 
 " Ctrl-s to save
-nnoremap <C-s> :w<CR>
-inoremap <C-s> <ESC>:w<cr>
+nnoremap <C-s> :w!<CR>
+inoremap <C-s> <ESC>:w!<cr>
 " Alternate way to save all
-nnoremap <silent> <CS-s> :wa<CR>
+nnoremap <silent> <CS-s> :wa!<CR>
 " Alternate way to quit
 " nnoremap <C-Q> :wq!<CR>
 " Use control-c instead of escape
