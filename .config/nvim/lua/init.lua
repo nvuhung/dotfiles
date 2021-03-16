@@ -1,5 +1,0 @@
-require 'galaxyline-nvim'
-require 'lsp-config'
-require 'nvim-compe'
-require 'plug-colorizer'
-require 'treesister'
