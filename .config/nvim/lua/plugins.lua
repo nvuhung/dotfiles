@@ -41,7 +41,9 @@ return require('packer').startup(
     use {'junegunn/gv.vim'};
 
     -- LSP
-    use {'neovim/nvim-lspconfig', config = require'plugins.nvim-lspconfig'};
+    use {'neovim/nvim-lspconfig', 
+      commit = '73691999f77db352823c0e92e7cb083582127dd8',
+      config = require'plugins.nvim-lspconfig'};
     
     -- Surround
     use {'tpope/vim-surround'};
@@ -82,6 +84,7 @@ return require('packer').startup(
     use {'nvim-treesitter/nvim-treesitter-refactor'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
     use {'nvim-treesitter/nvim-treesitter', 
+      commit = 'df81a91ba9e6ae29a70e168b49e21dc1835c0948',
       run = ':TSUpdate', 
       config = require'plugins.nvim-treesitter'
     }
