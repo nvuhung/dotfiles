@@ -1,10 +1,3 @@
--- Better nav for omnicomplete
--- inoremap <expr> <c-j> ("\<C-n>")
--- inoremap <expr> <c-k> ("\<C-p>")
--- vim.api.nvim_set_keymap("i", "<C-Space>", "[compe#complete()]", {expr = true, silent = true})
--- vim.api.nvim_set_keymap('i', '<c-j>', '[\<C-n>]', { exp = true})
--- vim.api.nvim_set_keymap('i', '<c-k>', '["\<C-p>]', { exp = true})
-
 -- Use shift + arrow to resize windows
 vim.api.nvim_set_keymap('n', '<S-Up>', '<M-j> :resize -2<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<S-Down>', '<M-k> :resize +2<CR>', { noremap = true })
@@ -28,7 +21,7 @@ vim.api.nvim_set_keymap('n', '<C-w><C-k>', ':bufdo :Bdelete<CR>', { noremap = tr
 vim.api.nvim_set_keymap('n', '<C-w>', ':Bdelete<CR>', { noremap = true })
 
 -- Toggle relative line number
-vim.api.nvim_set_keymap('n', '<C-L><C-L>', ':set invrelativenumber<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<C-L><C-L>', ':set invrelativenumber<CR>', { noremap = true })
 
 -- Ctrl-s to save
 vim.api.nvim_set_keymap('n', '<C-s>', ':w!<CR>', { noremap = true })
@@ -56,3 +49,10 @@ vim.api.nvim_set_keymap('n', '<C-c>', ':%s//g<Left><Left>', { noremap = true })
 -- Move selected line / block of text in visual mode
 vim.cmd([[xnoremap K :move '<-2<CR>gv-gv]])
 vim.cmd([[xnoremap J :move '>+1<CR>gv-gv]])
+
+-- Paste without yank
+-- https://stackoverflow.com/questions/290465/how-to-paste-over-without-overwriting-register
+vim.cmd([[xnoremap <silent> p p:let @+=@0<CR>:let @"=@0<CR>]])
+
+-- Quick replace in word
+-- vim.api.nvim_set_keymap('n', 'pw', 'viwp', { noremap = true, silent = true })
