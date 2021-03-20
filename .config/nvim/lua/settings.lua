@@ -36,6 +36,7 @@ cmd('set nobackup')                            -- This is recommended by coc
 cmd('set nowritebackup')                       -- This is recommended by coc
 cmd('set updatetime=300')                      -- Faster completion
 cmd('set timeoutlen=500')                      -- By default timeoutlen is 1000 ms
+cmd('set shortmess+=c')                        -- https://github.com/hrsh7th/nvim-compe#how-to-remove-pattern-not-found
 cmd('set formatoptions-=cro')                  -- Stop newline continution of comments
 -- cmd('set formatoptions-=c formatoptions-=r formatoptions-=o') -- Stop newline continution of comments
 cmd('set clipboard=unnamed,unnamedplus')       -- Copy paste between vim and everything else
@@ -72,6 +73,8 @@ local autocmds = {
 nvim_create_augroups(autocmds)
 
 -- file types
+cmd("autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact")
+cmd("autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact")
 cmd('autocmd BufNewFile,BufRead *.txml set filetype=xml')
 cmd('autocmd BufNewFile,BufRead *.tcss set filetype=css')
 cmd('autocmd BufNewFile,BufRead *.axml set filetype=xml')

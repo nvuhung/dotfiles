@@ -1,4 +1,7 @@
 return function()
+  -- Fix vsnip redundant character
+  vim.api.nvim_set_keymap('i', '<CR>', 'compe#confirm("<CR>")', { expr = true, silent = true })
+
   require'compe'.setup {
     enabled = true;
     autocomplete = true;
@@ -18,7 +21,6 @@ return function()
       buffer = {priority = 100},
       calc = true;
       vsnip = {priority = 300},
-      nvim_lsp = true;
       nvim_lsp = {priority = 200},
       nvim_lua = true;
       spell = true;
