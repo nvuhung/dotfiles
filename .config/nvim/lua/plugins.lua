@@ -48,10 +48,6 @@ return require('packer').startup(
     -- Surround
     use {'tpope/vim-surround'};
 
-    -- Closetags
-    -- FIXME
-    use {'alvan/vim-closetag', config = require'plugins.vim-closetag'};
-
     -- Sneak
     use {'justinmk/vim-sneak', config = require'plugins.vim-sneak'};
 
@@ -77,8 +73,8 @@ return require('packer').startup(
       config = require'plugins.telescope'
     }
 
-    -- Auto change html tags
-    use {'andrewradev/tagalong.vim'}
+    -- Auto close and rename tag
+    use {'windwp/nvim-ts-autotag', config = require'plugins.nvim-ts-autotag'}
 
     -- Treesitter
     use {'nvim-treesitter/nvim-treesitter-refactor'}
