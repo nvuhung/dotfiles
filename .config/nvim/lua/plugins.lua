@@ -25,7 +25,6 @@ return require('packer').startup(
     use {'kyazdani42/nvim-web-devicons', config = require('plugins.nvim-web-devicons')}
 
     -- Auto pairs for '(' '[' '{'
-    -- use {'jiangmiao/auto-pairs'};
     use {"windwp/nvim-autopairs", config = require'plugins.nvim-autopairs'}
 
     -- Colorizer
@@ -35,10 +34,8 @@ return require('packer').startup(
     use {'tpope/vim-commentary'};
 
     -- Git
-    use {'airblade/vim-gitgutter'};
+    use {'lewis6991/gitsigns.nvim', config = require'plugins.gitsigns'}
     use {'tpope/vim-fugitive'};
-    use {'tpope/vim-rhubarb'};
-    use {'junegunn/gv.vim'};
 
     -- LSP
     use {'neovim/nvim-lspconfig', 
