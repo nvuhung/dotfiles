@@ -55,7 +55,6 @@ return function()
           vim.fn.winrestview(view)
           if bufnr == vim.api.nvim_get_current_buf() then
               vim.cmd [[noautocmd :update]]
-              vim.cmd [[GitGutter]]
           end
       end
   end
@@ -231,7 +230,6 @@ return function()
       on_attach = on_attach,
       init_options = {documentFormatting = true},
       -- set log not working
-      -- cmd = {'efm-langserver', '-logfile', '~/Desktop/efm.log', '-loglevel', '10'},
       settings = {
           rootMarkers = {".git/"},
           languages = {
