@@ -31,6 +31,7 @@ return require('packer').startup(
     use {'norcalli/nvim-colorizer.lua', config = require'plugins.nvim-colorizer'}
 
     -- Comment
+    use {'JoosepAlviste/nvim-ts-context-commentstring'}
     use {'tpope/vim-commentary'};
 
     -- Git
@@ -81,6 +82,9 @@ return require('packer').startup(
       run = ':TSUpdate', 
       config = require'plugins.nvim-treesitter'
     }
+
+    -- Indent
+    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
 
     -- Snippets
     use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}

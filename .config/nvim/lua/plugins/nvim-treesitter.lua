@@ -12,6 +12,10 @@ return function()
         "bash",
         "lua"
     },
+    context_commentstring = {
+      -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+      enable = true
+    },
     indent = {
       enable = true
     },
