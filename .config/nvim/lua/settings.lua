@@ -44,6 +44,10 @@ cmd('set clipboard=unnamed,unnamedplus')       -- Copy paste between vim and eve
 cmd('set nu rnu')
 cmd('set completeopt=menu,menuone,noselect')
 cmd('set signcolumn=yes')
+-- Folding
+cmd('set nofoldenable')
+cmd('set foldmethod=expr')
+cmd('set foldexpr=nvim_treesitter#foldexpr()')
 
 function nvim_create_augroups(definitions)
 	for group_name, definition in pairs(definitions) do
