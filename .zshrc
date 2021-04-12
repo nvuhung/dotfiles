@@ -81,6 +81,7 @@ plugins=(
   zsh-completions
   tmux
   autojump
+  git-open
   # docker
   # docker-compose
   # colorize
