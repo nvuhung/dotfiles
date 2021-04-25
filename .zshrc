@@ -150,6 +150,11 @@ autoload -U compinit && (compinit &; compinit -C)
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # plugins+=(zsh-nvm)
+# Speed up shell loading while using nvm: https://www.ioannispoulakas.com/2020/02/22/how-to-speed-up-shell-load-while-using-nvm/
+export PATH=~/.nvm/versions/node/v14.16.1/bin:$PATH
+export NVM_DIR=~/.nvm
+[[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
+
 
 # Search files
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
