@@ -7,6 +7,9 @@ vim.api.nvim_set_keymap('n', '<S-Right>', '<M-l> :vertical resize +2<CR>', { nor
 -- ESC with kj or jk
 vim.api.nvim_set_keymap('i', 'kj', '<esc>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', 'jk', '<esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'jK', '<esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'Jk', '<esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'JK', '<esc>', { noremap = true, silent = true })
 
 -- Easy CAPS
 -- vim.api.nvim_set_keymap('i', '<Leader>u', '<esc>viwUi', { noremap = true })
