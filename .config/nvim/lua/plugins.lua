@@ -77,7 +77,6 @@ return require('packer').startup(
     use {'nvim-treesitter/nvim-treesitter-refactor'}
     use {'nvim-treesitter/nvim-treesitter-textobjects'}
     use {'nvim-treesitter/nvim-treesitter', 
-      commit = '574bd5ae37a5b460d99d10b0c315fbb3246bdc10',
       run = ':TSUpdate', 
       config = require'plugins.nvim-treesitter'
     }
