@@ -44,19 +44,13 @@ return function()
       }
   }
   
-  local function get_lua_cb(cb_name)
-    return string.format(":lua require'nvim-tree'.on_keypress('%s')<CR>", cb_name)
-  end
+  local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
   vim.g.nvim_tree_bindings = {
-    ["<cr>"] = get_lua_cb("edit"),
-    ["<s-cr>"] = get_lua_cb("close_node"),
-    ["o"] = get_lua_cb("edit"),
-    ["<BS>"] = get_lua_cb("close_node"),
-    ["l"] = get_lua_cb("edit"),
-    ["h"] = get_lua_cb("close_node"),
-    ["|"] = get_lua_cb("vsplit"),
-    ["_"] = get_lua_cb("split"),
+    -- { key = "|",                          cb = tree_cb("vsplit") },
+    -- { key = "_",                          cb = tree_cb("split") },
+    { key = "h",                          cb = tree_cb("close_node") },
+    { key = "l",                          cb = tree_cb("edit") },
   }
   
 end
