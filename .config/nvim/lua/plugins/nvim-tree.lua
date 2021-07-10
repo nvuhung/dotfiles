@@ -50,7 +50,11 @@ return function()
     -- { key = "|",                          cb = tree_cb("vsplit") },
     -- { key = "_",                          cb = tree_cb("split") },
     { key = "h",                          cb = tree_cb("close_node") },
+    { key = "<s-cr>",                     cb = tree_cb("close_node") },
+    { key = "<BS>",                       cb = tree_cb("close_node") },
     { key = "l",                          cb = tree_cb("edit") },
+    { key = "<cr>",                       cb = tree_cb("edit") },
+    { key = "o",                          cb = tree_cb("edit") },
   }
   
 end
