@@ -82,7 +82,7 @@ return require('packer').startup(
     }
 
     -- Indent
-    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+    use {'lukas-reineke/indent-blankline.nvim', branch = 'master'}
 
     -- Snippets
     use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}
