@@ -82,7 +82,7 @@ return require('packer').startup(
     }
 
     -- Indent
-    use {'lukas-reineke/indent-blankline.nvim', branch = 'master'}
+    -- use {'lukas-reineke/indent-blankline.nvim', branch = 'master'}
 
     -- Snippets
     use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}
@@ -95,5 +95,8 @@ return require('packer').startup(
 
     -- Smooth scroll
     use {'psliwka/vim-smoothie'}
+
+    -- Outline
+    use {'simrat39/symbols-outline.nvim', config = require('plugins.symbols-outline')}
   end
 )
