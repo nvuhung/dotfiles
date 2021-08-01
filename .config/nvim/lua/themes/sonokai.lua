@@ -1,3 +1,4 @@
+-- https://github.com/sainnhe/sonokai
 local cmd = vim.cmd
 
 vim.o.termguicolors = true
