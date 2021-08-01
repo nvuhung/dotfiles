@@ -82,6 +82,7 @@ plugins=(
   tmux
   autojump
   git-open
+  fast-syntax-highlighting
   # docker
   # docker-compose
   # colorize
@@ -134,7 +135,6 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 DEFAULT_USER="$(whoami)"
 source ~/.bash_profile
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # fpath+=($ZSH/plugins/docker)
 autoload -U compinit && (compinit &; compinit -C)
@@ -151,10 +151,9 @@ autoload -U compinit && (compinit &; compinit -C)
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 # plugins+=(zsh-nvm)
 # Speed up shell loading while using nvm: https://www.ioannispoulakas.com/2020/02/22/how-to-speed-up-shell-load-while-using-nvm/
-export PATH=~/.nvm/versions/node/v14.16.1/bin:$PATH
+export PATH=~/.nvm/versions/node/v12.18.2/bin:$PATH
 export NVM_DIR=~/.nvm
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh" --no-use
-
 
 # Search files
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
