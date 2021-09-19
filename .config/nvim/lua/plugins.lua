@@ -39,8 +39,7 @@ return require('packer').startup(
     use {'tpope/vim-fugitive'};
 
     -- LSP
-    use {'neovim/nvim-lspconfig', 
-      config = require'plugins.nvim-lspconfig'};
+    use {'neovim/nvim-lspconfig', config = require'plugins.nvim-lspconfig'};
     
     -- Surround
     use {'tpope/vim-surround'};
@@ -61,7 +60,7 @@ return require('packer').startup(
     use {'akinsho/nvim-bufferline.lua', config = require'plugins.nvim-bufferline'};
 
     -- Status line
-    use {'glepnir/galaxyline.nvim', branch = 'main', config = require'plugins.galaxyline'};
+    use {'famiu/feline.nvim', config = require'plugins.feline'};
 
     -- Telescope
     use {
@@ -82,7 +81,7 @@ return require('packer').startup(
     }
 
     -- Indent
-    -- use {'lukas-reineke/indent-blankline.nvim', branch = 'master'}
+    use {'lukas-reineke/indent-blankline.nvim', branch = 'master'}
 
     -- Snippets
     use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}
