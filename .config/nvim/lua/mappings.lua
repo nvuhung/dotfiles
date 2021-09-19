@@ -57,5 +57,9 @@ vim.cmd([[xnoremap J :move '>+1<CR>gv-gv]])
 -- https://stackoverflow.com/questions/290465/how-to-paste-over-without-overwriting-register
 vim.cmd([[xnoremap <silent> p p:let @+=@0<CR>:let @"=@0<CR>]])
 
+-- Map Y to y$
+-- Maybe will not need if upgrade nvim to latest version
+vim.api.nvim_set_keymap('n', 'Y', 'y$', { noremap = true })
+
 -- Quick replace in word
 -- vim.api.nvim_set_keymap('n', 'pw', 'viwp', { noremap = true, silent = true })
