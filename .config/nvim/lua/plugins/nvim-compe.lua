@@ -33,13 +33,13 @@ return function()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
   
-  require'lspconfig'.gopls.setup{
-    capabilities = capabilities,
-    on_attach = on_attach,
-    init_options = {
-      usePlaceholders = true,
-    },
-  }  
+  -- require'lspconfig'.gopls.setup{
+  --   capabilities = capabilities,
+  --   on_attach = on_attach,
+  --   init_options = {
+  --     usePlaceholders = true,
+  --   },
+  -- }  
 
   -- https://github.com/hrsh7th/nvim-compe#how-to-use-tab-to-navigate-completion-menu
   local t = function(str)
