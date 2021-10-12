@@ -81,7 +81,9 @@ return function()
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
     update_cwd          = false,
     -- show lsp diagnostics in the signcolumn
-    lsp_diagnostics     = false,
+    diagnostics = {
+      enable = false
+    },
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
       -- enables the feature
@@ -107,7 +109,7 @@ return function()
       -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
       side = 'left',
       -- if true the tree will resize itself after opening a file
-      auto_resize = false,
+      auto_resize = true,
       mappings = {
         -- custom only false will merge the list with the default mappings
         -- if true, it will only use your list to set the mappings
