@@ -278,6 +278,8 @@ local components = {
   }
 }
 
+vim.o.termguicolors = true
+
 -- LuaFormatter on
 
 require'feline'.setup {
