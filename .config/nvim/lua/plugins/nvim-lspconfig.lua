@@ -195,7 +195,7 @@ return function()
   }
 
   -- https://github.com/iamcco/vim-language-server
-  lspconfig.vimls.setup {on_attach = on_attach}
+  -- lspconfig.vimls.setup {on_attach = on_attach}
 
   -- https://github.com/vscode-langservers/vscode-json-languageserver
   lspconfig.jsonls.setup {
@@ -218,34 +218,36 @@ return function()
   -- local isort = require "efm/isort"
   -- local flake8 = require "efm/flake8"
   -- local mypy = require "efm/mypy"
+  -- local shellcheck = require "efm/shellcheck"
+  -- local misspell = require "efm/misspell"
   local prettier = require "efm/prettier"
   local eslint = require "efm/eslint"
-  local shellcheck = require "efm/shellcheck"
-  -- local misspell = require "efm/misspell"
 
   -- https://github.com/mattn/efm-langserver
+  local efm_config = {
+    -- ["="] = {misspell},
+    -- go = {golint, goimports},
+    -- python = {black, isort, flake8, mypy},
+    -- sh = {shellcheck},
+    typescript = {prettier, eslint},
+    javascript = {prettier, eslint},
+    typescriptreact = {prettier, eslint},
+    javascriptreact = {prettier, eslint},
+    yaml = {prettier},
+    json = {prettier},
+    html = {prettier},
+    scss = {prettier},
+    css = {prettier},
+    markdown = {prettier},
+  }
   lspconfig.efm.setup {
       on_attach = on_attach,
-      init_options = {documentFormatting = true},
+      init_options = {documentFormatting = true, codeAction = true},
+      filetypes = vim.tbl_keys(efm_config),
       -- set log not working
       settings = {
-          rootMarkers = {".git/"},
-          languages = {
-              -- ["="] = {misspell},
-              -- go = {golint, goimports},
-              -- python = {black, isort, flake8, mypy},
-              typescript = {prettier, eslint},
-              javascript = {prettier, eslint},
-              typescriptreact = {prettier, eslint},
-              javascriptreact = {prettier, eslint},
-              yaml = {prettier},
-              json = {prettier},
-              html = {prettier},
-              scss = {prettier},
-              css = {prettier},
-              markdown = {prettier},
-              sh = {shellcheck},
-          }
+        rootMarkers = {".git/"},
+        languages = efm_config
       }
   }
 

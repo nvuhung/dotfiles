@@ -71,14 +71,23 @@ return require('packer').startup(
     -- Indent
     use {'lukas-reineke/indent-blankline.nvim', branch = 'master'}
 
-    -- Snippets
-    use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}
-
     -- Completion
-    use {'hrsh7th/nvim-compe', config = require'plugins.nvim-compe'}
+    use {
+      'hrsh7th/nvim-cmp', 
+      requires = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+      },
+      config = require'plugins.nvim-cmp'
+    }
+
+    -- Snippets
+    use {"hrsh7th/cmp-vsnip"}
+    use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}
 
     -- File explorer
     use {'kyazdani42/nvim-tree.lua', config = require'plugins.nvim-tree'}
+
     -- Smooth scroll
     use {'psliwka/vim-smoothie'}
 

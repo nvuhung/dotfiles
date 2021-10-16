@@ -1,16 +1,16 @@
 return function()
   require'nvim-treesitter.configs'.setup {
     ensure_installed = {
-        "javascript",
-        "typescript",
-        "json",
-        "graphql",
-        "tsx",
-        "html",
-        "jsdoc",
-        "css",
-        "bash",
-        "lua"
+      "javascript",
+      "typescript",
+      "json",
+      "graphql",
+      "tsx",
+      "html",
+      "jsdoc",
+      "css",
+      "bash",
+      "lua"
     },
     context_commentstring = {
       -- https://github.com/JoosepAlviste/nvim-ts-context-commentstring
