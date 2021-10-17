@@ -212,6 +212,9 @@ return function()
   -- https://github.com/bash-lsp/bash-language-server
   lspconfig.bashls.setup {on_attach = on_attach}
 
+  -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+  lspconfig.svelte.setup {on_attach = on_attach}
+
   -- local golint = require "efm/golint"
   -- local goimports = require "efm/goimports"
   -- local black = require "efm/black"
