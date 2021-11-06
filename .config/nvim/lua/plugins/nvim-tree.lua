@@ -8,13 +8,13 @@ return function()
   
   vim.g.nvim_tree_side = 'left'
   vim.g.nvim_tree_width = 30
-  vim.g.nvim_tree_ignore = {".git", ".DS_Store", ".cache", "node_modules"}
+  -- vim.g.nvim_tree_ignore = {".git", ".DS_Store", ".cache", "node_modules"}
   -- vim.g.nvim_tree_auto_open = 1
   -- vim.g.nvim_tree_auto_close = 0
   vim.g.nvim_tree_quit_on_open = 0
   -- vim.g.nvim_tree_follow = 1
   vim.g.nvim_tree_indent_markers = 0
-  vim.g.nvim_tree_hide_dotfiles = 0
+  -- vim.g.nvim_tree_hide_dotfiles = 0
   vim.g.nvim_tree_git_hl = 1
   vim.g.nvim_tree_root_folder_modifier = ':~'
   -- vim.g.nvim_tree_tab_open = 1
@@ -101,6 +101,13 @@ return function()
       cmd  = nil,
       -- the command arguments as a list
       args = {}
+    },
+
+    ignore_ft_on_setup = {".git", ".DS_Store", ".cache", "node_modules"},
+
+    filters = {
+      dotfiles = false,
+      custom = {}
     },
 
     view = {
