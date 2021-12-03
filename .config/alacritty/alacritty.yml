@@ -67,8 +67,8 @@ background_opacity: 1
 
 # Window fullscreen
 window:
+  startup_mode: Maximized
   # startup_mode: Maximized
-  startup_mode: Fullscreen
   padding:
     x: 2
     y: 2
