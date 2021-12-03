@@ -7,7 +7,7 @@ return function()
   vim.o.termguicolors = true
   
   vim.g.nvim_tree_side = 'left'
-  vim.g.nvim_tree_width = 30
+  vim.g.nvim_tree_width = 50
   -- vim.g.nvim_tree_ignore = {".git", ".DS_Store", ".cache", "node_modules"}
   -- vim.g.nvim_tree_auto_open = 1
   -- vim.g.nvim_tree_auto_close = 0
@@ -112,7 +112,7 @@ return function()
 
     view = {
       -- width of the window, can be either a number (columns) or a string in `%`
-      width = 30,
+      width = 50,
       -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
       side = 'left',
       -- if true the tree will resize itself after opening a file
