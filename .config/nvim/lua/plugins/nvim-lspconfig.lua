@@ -40,10 +40,10 @@ return function()
       "♛ [type]"
   }
 
-  vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
-  vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
-  vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
-  vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+  vim.fn.sign_define("DiagnosticSignError", { text = "✗", texthl = "DiagnosticSignError" })
+  vim.fn.sign_define("DiagnosticSignWarn", { text = "!", texthl = "DiagnosticSignWarn" })
+  vim.fn.sign_define("DiagnosticSignInformation", { text = "", texthl = "DiagnosticSignInfo" })
+  vim.fn.sign_define("DiagnosticSignHint", { text = "", texthl = "DiagnosticSignHint" })
 
   vim.lsp.handlers["textDocument/formatting"] = function(_, result, ctx, _)
       if not result then return end
@@ -57,16 +57,16 @@ return function()
       end
   end
 
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
-      vim.lsp.with(
-          vim.lsp.diagnostic.on_publish_diagnostics,
-          {
-              underline = true,
-              update_in_insert = false
-          }
-      )(...)
-      pcall(vim.lsp.diagnostic.set_loclist, {open_loclist = false})
-  end
+--   vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
+--       vim.lsp.with(
+--           vim.lsp.diagnostic.on_publish_diagnostics,
+--           {
+--               underline = true,
+--               update_in_insert = false
+--           }
+--       )(...)
+--       pcall(vim.lsp.diagnostic.set_loclist, {open_loclist = false})
+--   end
 
   -- Prettier
   local format_options_prettier = {
@@ -138,10 +138,10 @@ return function()
       -- map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
       map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
       map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-      map('n', '<space>s', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
-      map('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-      map('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-      map('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
+      map('n', '<space>s', '<cmd>lua vim.diagnostic.open_float()<CR>')
+      map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+      map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+      map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
 
   end
 
