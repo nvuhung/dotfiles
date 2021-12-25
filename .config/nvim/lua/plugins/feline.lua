@@ -154,7 +154,7 @@ return function()
                   return '' .. lsp_get_diag("Error")
               end,
               -- left_sep = ' ',
-              enabled = function() return lsp.diagnostics_exist('Error') end,
+              enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR) end,
               hl = {
                   fg = colors.red
               }
@@ -165,7 +165,7 @@ return function()
                   return '' ..  lsp_get_diag("Warning")
               end,
               -- left_sep = ' ',
-              enabled = function() return lsp.diagnostics_exist('Warning') end,
+              enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.WARN) end,
               hl = {
                   fg = colors.yellow
               }
@@ -176,7 +176,7 @@ return function()
                   return '' .. lsp_get_diag("Information")
               end,
               -- left_sep = ' ',
-              enabled = function() return lsp.diagnostics_exist('Information') end,
+              enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.INFO) end,
               hl = {
                   fg = colors.blue
               }
@@ -187,7 +187,7 @@ return function()
                   return '' .. lsp_get_diag("Hint")
               end,
               -- left_sep = ' ',
-              enabled = function() return lsp.diagnostics_exist('Hint') end,
+              enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.HINT) end,
               hl = {
                   fg = colors.cyan
               }
