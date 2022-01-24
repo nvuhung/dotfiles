@@ -54,9 +54,6 @@ colors:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Background
-background_opacity: 1
-
 # Shell
 # shell:
 #   program: /bin/zsh
@@ -73,6 +70,7 @@ window:
     x: 2
     y: 2
   dynamic_title: true
+  opacity: 1
 
 selection:
   # When set to `true`, selected text will be copied to the primary clipboard.
