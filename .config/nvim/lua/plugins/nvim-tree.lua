@@ -12,7 +12,6 @@ return function()
   -- vim.g.nvim_tree_auto_open = 1
   -- vim.g.nvim_tree_auto_close = 0
   vim.g.nvim_tree_quit_on_open = 0
-  -- vim.g.nvim_tree_follow = 1
   vim.g.nvim_tree_indent_markers = 0
   -- vim.g.nvim_tree_hide_dotfiles = 0
   vim.g.nvim_tree_git_hl = 1
@@ -48,12 +47,12 @@ return function()
 
   local list = {
     -- { key = {"<CR>", "o" }, cb = ":lua some_func()<cr>", mode = "n"}
-    { key = "h",                          cb = tree_cb("close_node") },
-    { key = "<s-cr>",                     cb = tree_cb("close_node") },
-    { key = "<BS>",                       cb = tree_cb("close_node") },
-    { key = "l",                          cb = tree_cb("edit") },
-    { key = "<cr>",                       cb = tree_cb("edit") },
-    { key = "o",                          cb = tree_cb("edit") },
+    { key = "h",                          action = "close_node" },
+    { key = "<s-cr>",                     action = "close_node" },
+    { key = "<BS>",                       action = "close_node" },
+    { key = "l",                          action = "edit" },
+    { key = "<cr>",                       action = "edit" },
+    { key = "o",                          action = "edit" },
   }
   
   require('nvim-tree').setup({
@@ -83,17 +82,6 @@ return function()
     -- show lsp diagnostics in the signcolumn
     diagnostics = {
       enable = false
-    },
-    -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
-    update_focused_file = {
-      -- enables the feature
-      enable      = true,
-      -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
-      -- only relevant when `update_focused_file.enable` is true
-      update_cwd  = false,
-      -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
-      -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
-      ignore_list = {}
     },
     -- configuration options for the system open command (`s` in the tree by default)
     system_open = {
