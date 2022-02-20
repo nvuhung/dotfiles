@@ -72,17 +72,19 @@ return require('packer').startup(
     use {'lukas-reineke/indent-blankline.nvim', branch = 'master'}
 
     -- Completion
-    use {'hrsh7th/nvim-compe', config = require'plugins.nvim-compe'}
+    -- use {'hrsh7th/nvim-compe', config = require'plugins.nvim-compe'}
     -- NOTE: nvm-cmp error when enter in block code {
-    -- use { 
-    --   'hrsh7th/nvim-cmp', 
-    --   requires = {
-    --     'hrsh7th/cmp-nvim-lsp',
-    --     'hrsh7th/cmp-buffer',
-    --   },
-    --   config = require'plugins.nvim-cmp'
-    -- }
-    -- use {"hrsh7th/cmp-vsnip"}
+    use { 
+      'hrsh7th/nvim-cmp', 
+      requires = {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+      },
+      config = require'plugins.nvim-cmp'
+    }
+    use {"hrsh7th/cmp-vsnip"}
 
     -- Snippets
     use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}
