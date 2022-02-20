@@ -13,12 +13,12 @@ return function()
   MUtils.completion_confirm=function()
     if vim.fn.pumvisible() ~= 0  then
       if vim.fn.complete_info()["selected"] ~= -1 then
-        vim.fn["compe#confirm"]()
+        -- vim.fn["compe#confirm"]()
         return npairs.esc("<c-y>")
       else
-        vim.defer_fn(function()
-          vim.fn["compe#confirm"]("<cr>")
-        end, 20)
+        -- vim.defer_fn(function()
+        --   vim.fn["compe#confirm"]("<cr>")
+        -- end, 20)
         return npairs.esc("<c-n>")
       end
     else
