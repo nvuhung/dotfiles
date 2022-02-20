@@ -1,4 +1,7 @@
 return function()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+
   local lspconfig = require "lspconfig"
 
   local map = function(mode, key, result, noremap, expr)
@@ -82,7 +85,8 @@ return function()
   vim.g.format_options_json = format_options_prettier
   vim.g.format_options_css = format_options_prettier
   vim.g.format_options_scss = format_options_prettier
-  vim.g.format_options_html = format_options_prettier
+  vim.g.format_options_less = format_options_prettier
+  -- vim.g.format_options_html = format_options_prettier
   vim.g.format_options_yaml = format_options_prettier
   vim.g.format_options_markdown = format_options_prettier
 
@@ -204,16 +208,31 @@ return function()
   }
 
   -- https://github.com/vscode-langservers/vscode-css-languageserver-bin
-  lspconfig.cssls.setup {on_attach = on_attach}
+  lspconfig.cssls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+  }
 
   -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
-  lspconfig.html.setup {on_attach = on_attach}
+  lspconfig.html.setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+  }
 
   -- https://github.com/bash-lsp/bash-language-server
   lspconfig.bashls.setup {on_attach = on_attach}
 
   -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
   lspconfig.svelte.setup {on_attach = on_attach}
+
+  -- https://github.com/bmatcuk/stylelint-lsp
+  -- lspconfig.stylelint_lsp.setup {on_attach = on_attach}
+  lspconfig.stylelint_lsp.setup {
+      on_attach = function(client)
+          client.resolved_capabilities.document_formatting = false
+          on_attach(client)
+      end
+  }
 
   -- local golint = require "efm/golint"
   -- local goimports = require "efm/goimports"
@@ -238,8 +257,9 @@ return function()
     javascriptreact = {prettier, eslint},
     yaml = {prettier},
     json = {prettier},
-    html = {prettier},
+    -- html = {prettier},
     scss = {prettier},
+    less = {prettier},
     css = {prettier},
     markdown = {prettier},
   }
