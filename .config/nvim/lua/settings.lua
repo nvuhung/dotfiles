@@ -48,6 +48,7 @@ cmd('set signcolumn=yes')
 cmd('set nofoldenable')
 cmd('set foldmethod=expr')
 cmd('set foldexpr=nvim_treesitter#foldexpr()')
+cmd('language en_US.UTF-8')
 
 function nvim_create_augroups(definitions)
 	for group_name, definition in pairs(definitions) do
@@ -79,8 +80,8 @@ nvim_create_augroups(autocmds)
 -- file types
 cmd("autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact")
 cmd("autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact")
-cmd('autocmd BufNewFile,BufRead *.txml set filetype=html')
-cmd('autocmd BufNewFile,BufRead *.axml set filetype=html')
+cmd('autocmd BufNewFile,BufRead *.txml set filetype=xml')
+cmd('autocmd BufNewFile,BufRead *.axml set filetype=xml')
 cmd('autocmd BufNewFile,BufRead *.tcss set filetype=css')
 cmd('autocmd BufNewFile,BufRead *.acss set filetype=css')
 cmd('autocmd BufNewFile,BufRead *.sjs set filetype=javascript')

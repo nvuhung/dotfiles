@@ -51,8 +51,9 @@ return function()
   local lsp = require 'feline.providers.lsp'
   local vi_mode_utils = require 'feline.providers.vi_mode'
 
-  local lsp_get_diag = function(str)
-    local count = vim.lsp.diagnostic.get_count(0, str)
+  local lsp_get_diag = function(severity)
+    local severity = 'Warning' and 'Warn' or severity
+    local count = vim.tbl_count(vim.diagnostic.get(0, s and { severity = s }))
     return (count > 0) and ' '..count..' ' or ''
   end
 

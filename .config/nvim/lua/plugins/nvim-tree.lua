@@ -8,15 +8,8 @@ return function()
   
   vim.g.nvim_tree_side = 'left'
   vim.g.nvim_tree_width = 50
-  -- vim.g.nvim_tree_ignore = {".git", ".DS_Store", ".cache", "node_modules"}
-  -- vim.g.nvim_tree_auto_open = 1
-  -- vim.g.nvim_tree_auto_close = 0
-  vim.g.nvim_tree_quit_on_open = 0
-  vim.g.nvim_tree_indent_markers = 0
-  -- vim.g.nvim_tree_hide_dotfiles = 0
   vim.g.nvim_tree_git_hl = 1
   vim.g.nvim_tree_root_folder_modifier = ':~'
-  -- vim.g.nvim_tree_tab_open = 1
   vim.g.nvim_tree_width_allow_resize  = 0
   vim.g.nvim_tree_show_icons = {
     git = 1,
@@ -47,7 +40,7 @@ return function()
 
   local list = {
     -- { key = {"<CR>", "o" }, cb = ":lua some_func()<cr>", mode = "n"}
-    { key = "h",                          action = "close_node" },
+    { key = "h",                          action = "edit" },
     { key = "<s-cr>",                     action = "close_node" },
     { key = "<BS>",                       action = "close_node" },
     { key = "l",                          action = "edit" },
@@ -64,17 +57,8 @@ return function()
     open_on_setup       = true,
     -- will not open on setup if the filetype is in this list
     ignore_ft_on_setup  = {},
-    -- closes neovim automatically when the tree is the last **WINDOW** in the view
-    auto_close          = false,
     -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
     open_on_tab         = false,
-    -- hijacks new directory buffers when they are opened.
-    update_to_buf_dir   = {
-      -- enable the feature
-      enable = true,
-      -- allow to open the tree if it was previously closed
-      auto_open = true,
-    },
     -- hijack the cursor in the tree to put it at the start of the filename
     hijack_cursor       = false,
     -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
@@ -98,19 +82,41 @@ return function()
       custom = {}
     },
 
+    update_focused_file = {
+      enable      = true,
+      update_cwd  = false,
+      ignore_list = {}
+    },
+
     view = {
       -- width of the window, can be either a number (columns) or a string in `%`
       width = 50,
       -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
       side = 'left',
-      -- if true the tree will resize itself after opening a file
-      auto_resize = true,
       mappings = {
         -- custom only false will merge the list with the default mappings
         -- if true, it will only use your list to set the mappings
         custom_only = false,
         -- list of mappings to set on the tree manually
         list = list
+      }
+    },
+    actions = {
+      change_dir = {
+        enable = true,
+        global = false,
+      },
+      open_file = {
+        quit_on_open = false,
+        resize_window = false,
+        window_picker = {
+          enable = true,
+          chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+          exclude = {
+            filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", },
+            buftype  = { "nofile", "terminal", "help", },
+          }
+        }
       }
     }
   })
