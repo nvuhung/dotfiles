@@ -56,6 +56,7 @@ return require('packer').startup(
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
       config = require'plugins.telescope'
     }
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
     -- Auto close and rename tag
     use {'windwp/nvim-ts-autotag', config = require'plugins.nvim-ts-autotag'}

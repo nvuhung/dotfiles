@@ -1,14 +1,32 @@
 return function()
   -- mappings
-  vim.api.nvim_set_keymap('n', '<C-P>', '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>', { noremap = true })
-  vim.api.nvim_set_keymap('n', '<C-F>', '<cmd>Telescope live_grep find_command=rg,--ignore,--hidden,--files<cr>', { noremap = true })
-  vim.api.nvim_set_keymap('n', '<C-B>', '<cmd>Telescope buffers<cr>', { noremap = true })
-  vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<C-P>', '<cmd>lua require("telescope.builtin").find_files()<cr>', { noremap = true })
+  -- nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+  vim.api.nvim_set_keymap('n', '<C-F>', '<cmd>lua require("telescope.builtin").live_grep()<cr>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<C-B>', '<cmd>lua require("telescope.builtin").buffers()<cr>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
 
   vim.o.termguicolors = true
   local actions = require('telescope.actions')
 
-  require('telescope').setup{
+  require('telescope').setup {
+    extensions = {
+      fzf = {
+        fuzzy = true,                    -- false will only do exact matching
+        override_generic_sorter = true,  -- override the generic sorter
+        override_file_sorter = true,     -- override the file sorter
+        case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      }
+    },
+    pickers = {
+      live_grep = {
+        debounce = 10,
+        -- on_input_filter_cb = function(prompt)
+        --   -- AND operator for live_grep like how fzf handles spaces with wildcards in rg
+        --   return { prompt = prompt:gsub("%s", ".*") }
+        -- end,
+      },
+    },
     defaults = {
       mappings = {
         i = {
@@ -49,7 +67,8 @@ return function()
         },
       },
       file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-      file_ignore_patterns = {".cache", ".umi", "_next", ".next", "yarn.lock", "autoload/.*", "node_modules/.*", "plugged/.*", "android/.*", "ios/.*", "build/.*", "dist/.*", ".git/.*", "CHANGELOG.md"}, generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+      file_ignore_patterns = {".cache", ".umi", "_next", ".next", "yarn.lock", "autoload/.*", "node_modules/.*", "plugged/.*", "android/.*", "ios/.*", "build/.*", "dist/.*", ".git/.*", "CHANGELOG.md", "tf-tiniapp.render.js"},
+      generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
       -- path_display = true,
       winblend = 0,
       border = {},
@@ -65,4 +84,5 @@ return function()
       buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
     }
   }
+  require('telescope').load_extension('fzf')
 end

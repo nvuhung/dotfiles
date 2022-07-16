@@ -226,6 +226,16 @@ return function()
   -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
   lspconfig.svelte.setup {on_attach = on_attach}
 
+  -- https://github.com/withastro/language-tools/tree/main/packages/language-server
+  -- lspconfig.astro.setup {on_attach = on_attach}
+  lspconfig.astro.setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      cmd = { "astro-ls", "--stdio" },
+      filetypes = { "astro" }
+  }
+
+
   -- https://github.com/bmatcuk/stylelint-lsp
   -- lspconfig.stylelint_lsp.setup {on_attach = on_attach}
   lspconfig.stylelint_lsp.setup {
