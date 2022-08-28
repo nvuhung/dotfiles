@@ -224,7 +224,12 @@ return function()
   lspconfig.bashls.setup {on_attach = on_attach}
 
   -- https://github.com/sveltejs/language-tools/tree/master/packages/language-server
+  -- npm install -g svelte-language-server
   lspconfig.svelte.setup {on_attach = on_attach}
+
+  -- https://github.com/tailwindlabs/tailwindcss-intellisense
+  -- npm install -g @tailwindcss/language-server
+  lspconfig.tailwindcss.setup {on_attach = on_attach}
 
   -- https://github.com/withastro/language-tools/tree/main/packages/language-server
   -- lspconfig.astro.setup {on_attach = on_attach}

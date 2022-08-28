@@ -98,5 +98,8 @@ return require('packer').startup(
 
     -- Outline
     use {'simrat39/symbols-outline.nvim', config = require('plugins.symbols-outline')}
+
+    --- Highlighting
+    use {'RRethy/vim-illuminate', config = require('plugins.illuminate')}
   end
 )

@@ -120,7 +120,7 @@
   },
   "log": {
     "prefix": ["clg"],
-    "body": "console.log('${1:$TM_SELECTED_TEXT}');"
+    "body": "console.log('>>${1:$TM_SELECTED_TEXT}');"
   },
   "consoleLog": {
     "prefix": "cll",
