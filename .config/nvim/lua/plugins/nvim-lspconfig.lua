@@ -231,6 +231,9 @@ return function()
   -- npm install -g @tailwindcss/language-server
   lspconfig.tailwindcss.setup {on_attach = on_attach}
 
+  -- npm install -g @prisma/language-server
+  lspconfig.prismals.setup {on_attach = on_attach}
+
   -- https://github.com/withastro/language-tools/tree/main/packages/language-server
   -- lspconfig.astro.setup {on_attach = on_attach}
   lspconfig.astro.setup {
