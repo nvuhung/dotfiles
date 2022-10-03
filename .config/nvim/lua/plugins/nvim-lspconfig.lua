@@ -99,41 +99,29 @@ return function()
 
   _G.formatting = function()
       if not vim.g[string.format("format_disabled_%s", vim.bo.filetype)] then
-          vim.lsp.buf.formatting(vim.g[string.format("format_options_%s", vim.bo.filetype)] or {})
+          vim.lsp.buf.format(vim.g[string.format("format_options_%s", vim.bo.filetype)] or {})
       end
   end
 
   local on_attach = function(client)
-      if client.resolved_capabilities.code_action then
-          map('n', '<C-e>', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
-          vim.cmd [[augroup CodeAction]]
-          vim.cmd [[autocmd! * <buffer>]]
-          -- vim.cmd [[autocmd CursorHold * lua require'nvim-lightbulb'.update_lightbulb()]]
-          vim.cmd [[augroup END]]
-      end
-      if client.resolved_capabilities.document_formatting then
+      if client.server_capabilities.documentFormattingProvider then
           vim.cmd [[augroup Format]]
           vim.cmd [[autocmd! * <buffer>]]
           vim.cmd [[autocmd BufWritePost <buffer> lua formatting()]]
           vim.cmd [[augroup END]]
       end
-      if client.resolved_capabilities.goto_definition then
+      if client.server_capabilities.definitionProvider then
           map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
       end
-      if client.resolved_capabilities.hover then
-          -- map("n", "<CR>", "<cmd>lua vim.lsp.buf.hover()<CR>")
+      if client.server_capabilities.hoverProvider then
           map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
       end
-      -- if client.resolved_capabilities.find_references then
-      --     map("n", "<Leader>*", ":call lists#ChangeActiveList('Quickfix')<CR>:lua vim.lsp.buf.references()<CR>")
-      -- end
-      if client.resolved_capabilities.rename then
+      if client.server_capabilities.renameProvider then
           map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
       end
 
       map('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>')
-      -- map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
-      -- map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>')
+      map('n', '<C-e>', '<Cmd>lua vim.lsp.buf.code_action()<CR>')
       map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
       map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
       map('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
@@ -141,7 +129,7 @@ return function()
       map('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
       map('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
       -- map('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-      map('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+      map('n', '<space>f', '<cmd>lua vim.lsp.buf.format()<CR>')
       map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
       map('n', '<space>s', '<cmd>lua vim.diagnostic.open_float()<CR>')
       map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
@@ -150,25 +138,10 @@ return function()
 
   end
 
-  -- function _G.activeLSP()
-  --     local servers = {}
-  --     for _, lsp in pairs(vim.lsp.get_active_clients()) do
-  --         table.insert(servers, {name = lsp.name, id = lsp.id})
-  --     end
-  --     _G.dump(servers)
-  -- end
-  -- function _G.bufferActiveLSP()
-  --     local servers = {}
-  --     for _, lsp in pairs(vim.lsp.buf_get_clients()) do
-  --         table.insert(servers, {name = lsp.name, id = lsp.id})
-  --     end
-  --     _G.dump(servers)
-  -- end
-
   -- https://github.com/golang/tools/tree/master/gopls
   -- lspconfig.gopls.setup {
   --     on_attach = function(client)
-  --         client.resolved_capabilities.document_formatting = false
+  --         client.server_capabilities.documentFormattingProvider = false
   --         on_attach(client)
   --     end
   -- }
@@ -194,7 +167,7 @@ return function()
   -- https://github.com/theia-ide/typescript-language-server
   lspconfig.tsserver.setup {
       on_attach = function(client)
-          client.resolved_capabilities.document_formatting = false
+          client.server_capabilities.documentFormattingProvider = false
           on_attach(client)
       end
   }
@@ -248,7 +221,7 @@ return function()
   -- lspconfig.stylelint_lsp.setup {on_attach = on_attach}
   lspconfig.stylelint_lsp.setup {
       on_attach = function(client)
-          client.resolved_capabilities.document_formatting = false
+          client.server_capabilities.documentFormattingProvider = false
           on_attach(client)
       end
   }
