@@ -22,6 +22,8 @@
 
 Neovim version 0.5
 
+## Ran make from ~/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim which just gave me a make: Nothing to be done for all'.` message.
+
 # TODO
 [  ] Code action to fix error
 
