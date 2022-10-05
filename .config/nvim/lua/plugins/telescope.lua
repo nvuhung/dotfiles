@@ -5,19 +5,25 @@ return function()
   vim.api.nvim_set_keymap('n', '<C-F>', '<cmd>lua require("telescope.builtin").live_grep()<cr>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<C-B>', '<cmd>lua require("telescope.builtin").buffers()<cr>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
+  -- https://github.com/nvim-telescope/telescope-frecency.nvim
+  vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
 
   vim.o.termguicolors = true
   local actions = require('telescope.actions')
 
   require('telescope').setup {
-    -- extensions = {
-    --   fzf = {
-    --     fuzzy = true,                    -- false will only do exact matching
-    --     override_generic_sorter = true,  -- override the generic sorter
-    --     override_file_sorter = true,     -- override the file sorter
-    --     case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-    --   }
-    -- },
+    extensions = {
+      fzf = {
+        fuzzy = true, 
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
+      },
+      fzy_native = {
+        override_generic_sorter = false,
+        override_file_sorter = true,
+      }
+    },
     pickers = {
       live_grep = {
         debounce = 10,
@@ -84,5 +90,5 @@ return function()
       buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
     }
   }
-  -- require('telescope').load_extension('fzf')
+  require('telescope').load_extension('fzf')
 end
