@@ -7,7 +7,6 @@ return require('packer').startup(
 
     -- Theme
     use {'sainnhe/sonokai'};
-    use "EdenEast/nightfox.nvim"
 
     -- Icons
     use {'ryanoasis/vim-devicons'}
