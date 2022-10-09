@@ -7,10 +7,11 @@ return require('packer').startup(
 
     -- Theme
     use {'sainnhe/sonokai'};
+    use "EdenEast/nightfox.nvim"
 
     -- Icons
     use {'ryanoasis/vim-devicons'}
-    use {'kyazdani42/nvim-web-devicons', config = require('plugins.nvim-web-devicons')}
+    use {'nvim-tree/nvim-web-devicons', config = require('plugins.nvim-web-devicons')}
 
     -- Auto pairs for '(' '[' '{'
     use {"windwp/nvim-autopairs", config = require'plugins.nvim-autopairs'}
@@ -32,11 +33,12 @@ return require('packer').startup(
     -- Surround
     use {'tpope/vim-surround'};
 
-    -- Sneak
-    use {'justinmk/vim-sneak', config = require'plugins.vim-sneak'};
-
     -- Text Navigation
-    use {'unblevable/quick-scope', config = require'plugins.quick-scope'};
+    use {
+      'phaazon/hop.nvim',
+      branch = 'v2', -- optional but strongly recommended
+      config = require('plugins.hop')
+    }
 
     -- Bbye (Buffer Bye)
     use {'moll/vim-bbye'};
@@ -98,7 +100,7 @@ return require('packer').startup(
     use {"hrsh7th/vim-vsnip", requires = "hrsh7th/vim-vsnip-integ", config = require"plugins.vim-vsnip"}
 
     -- File explorer
-    use {'kyazdani42/nvim-tree.lua', config = require'plugins.nvim-tree'}
+    use {'nvim-tree/nvim-tree.lua', config = require'plugins.nvim-tree'}
 
     -- Smooth scroll
     use {'psliwka/vim-smoothie'}
