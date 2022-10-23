@@ -51,11 +51,6 @@ autoload -U compinit && (compinit &; compinit -C)
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-
-# Broot
-source $HOME/.config/broot/launcher/bash/br
-source /Users/nvuhung/.config/broot/launcher/bash/br
-
 # Theme
 eval "$(starship init zsh)"
 
