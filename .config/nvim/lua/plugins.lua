@@ -105,7 +105,11 @@ return require('packer').startup(
     use {'psliwka/vim-smoothie'}
 
     -- Outline
-    use {'simrat39/symbols-outline.nvim', config = require('plugins.symbols-outline')}
+    -- use {'simrat39/symbols-outline.nvim', config = require('plugins.symbols-outline')}
+    use {
+      'stevearc/aerial.nvim',
+      config = require'plugins.aerial'    
+    }
 
     --- Highlighting
     use {'RRethy/vim-illuminate', config = require('plugins.vim-illuminate')}

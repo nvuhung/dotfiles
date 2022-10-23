@@ -3,10 +3,12 @@ return function()
   vim.api.nvim_set_keymap('n', '<C-P>', '<cmd>lua require("telescope.builtin").find_files()<cr>', { noremap = true })
   -- nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
   vim.api.nvim_set_keymap('n', '<C-F>', '<cmd>lua require("telescope.builtin").live_grep()<cr>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<C-S-F>', '<cmd>lua require("telescope.builtin").resume()<cr>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<C-B>', '<cmd>lua require("telescope.builtin").buffers()<cr>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
   -- https://github.com/nvim-telescope/telescope-frecency.nvim
   vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
+  vim.api.nvim_set_keymap("n", "<leader>o", ':Telescope aerial<CR>', {noremap = true, silent = true})
 
   vim.o.termguicolors = true
   local actions = require('telescope.actions')
@@ -22,6 +24,16 @@ return function()
       fzy_native = {
         override_generic_sorter = false,
         override_file_sorter = true,
+      },
+      aerial = {
+        -- Display symbols as <root>.<parent>.<symbol>
+        show_nesting = {
+          ['_'] = false, -- This key will be the default
+          json = true,   -- You can set the option for specific filetypes
+          javascript = true,   -- You can set the option for specific filetypes
+          typescript = true,   -- You can set the option for specific filetypes
+          yaml = true,
+        }
       }
     },
     pickers = {
@@ -78,6 +90,7 @@ return function()
         ".umi", 
         "_next", 
         ".next", 
+        ".svg",
         "yarn.lock", 
         "autoload/.*", 
         "node_modules/.*", 
@@ -109,4 +122,5 @@ return function()
     }
   }
   require('telescope').load_extension('fzf')
+  require('telescope').load_extension('aerial')
 end
