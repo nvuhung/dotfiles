@@ -53,6 +53,7 @@ return require('packer').startup(
 
     -- Telescope
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { "axkirillov/telescope-changed-files" }
     use {
       "nvim-telescope/telescope-frecency.nvim",
       config = function()

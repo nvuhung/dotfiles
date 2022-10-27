@@ -9,6 +9,7 @@ return function()
   -- https://github.com/nvim-telescope/telescope-frecency.nvim
   vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "<leader>o", ':Telescope aerial<CR>', {noremap = true, silent = true})
+  vim.api.nvim_set_keymap("n", "<leader>cf", ':Telescope changed_files<CR>', {noremap = true, silent = true})
 
   vim.o.termguicolors = true
   local actions = require('telescope.actions')
@@ -123,4 +124,5 @@ return function()
   }
   require('telescope').load_extension('fzf')
   require('telescope').load_extension('aerial')
+  require('telescope').load_extension('changed_files')
 end
