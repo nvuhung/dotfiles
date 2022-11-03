@@ -114,5 +114,8 @@ return require('packer').startup(
 
     --- Highlighting
     use {'RRethy/vim-illuminate', config = require('plugins.vim-illuminate')}
+
+    -- Wakatim
+    use 'wakatime/vim-wakatime'
   end
 )
