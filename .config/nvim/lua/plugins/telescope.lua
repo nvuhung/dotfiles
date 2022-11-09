@@ -104,6 +104,7 @@ return function()
         "yarn-error.log",
         "npm-debug.log",
         "CHANGELOG.md", 
+        "pnpm-lock.yaml",
         "tf-tiniapp.render.js"
       },
       generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
