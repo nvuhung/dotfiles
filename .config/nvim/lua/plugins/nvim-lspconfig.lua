@@ -215,9 +215,6 @@ return function()
       filetypes = { "astro" }
   }
 
-  -- https://github.com/prisma/language-tools
-  lspconfig.prismals.setup {on_attach = on_attach}
-
 
   -- https://github.com/bmatcuk/stylelint-lsp
   -- lspconfig.stylelint_lsp.setup {on_attach = on_attach}
