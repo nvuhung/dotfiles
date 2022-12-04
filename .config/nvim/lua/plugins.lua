@@ -33,11 +33,8 @@ return require('packer').startup(
     use {'tpope/vim-surround'};
 
     -- Text Navigation
-    use {
-      'phaazon/hop.nvim',
-      branch = 'v2', -- optional but strongly recommended
-      config = require('plugins.hop')
-    }
+    use { 'ggandor/leap.nvim', config = require'plugins.leap' }
+    use { 'ggandor/flit.nvim', config = require'plugins.flit' }
 
     -- Bbye (Buffer Bye)
     use {'moll/vim-bbye'};
