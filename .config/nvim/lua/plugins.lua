@@ -52,13 +52,6 @@ return require('packer').startup(
     use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
     use { "axkirillov/telescope-changed-files" }
     use {
-      "nvim-telescope/telescope-frecency.nvim",
-      config = function()
-        require"telescope".load_extension("frecency")
-      end,
-      requires = {"kkharji/sqlite.lua"}
-    }
-    use {
       'nvim-telescope/telescope.nvim',
       requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
       config = require'plugins.telescope'

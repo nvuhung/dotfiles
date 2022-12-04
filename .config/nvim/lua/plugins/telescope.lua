@@ -6,8 +6,6 @@ return function()
   vim.api.nvim_set_keymap('n', '<C-S-F>', '<cmd>lua require("telescope.builtin").resume()<cr>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<C-B>', '<cmd>lua require("telescope.builtin").buffers()<cr>', { noremap = true })
   vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
-  -- https://github.com/nvim-telescope/telescope-frecency.nvim
-  vim.api.nvim_set_keymap("n", "<leader><leader>", "<Cmd>lua require('telescope').extensions.frecency.frecency()<CR>", {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "<leader>o", ':Telescope aerial<CR>', {noremap = true, silent = true})
   vim.api.nvim_set_keymap("n", "<leader>cf", ':Telescope changed_files<CR>', {noremap = true, silent = true})
 
