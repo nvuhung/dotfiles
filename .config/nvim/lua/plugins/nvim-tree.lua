@@ -100,18 +100,21 @@ return function()
           default = "",
           symlink = "",
           git = {
-              unstaged = "",
-              staged = "",
-              unmerged = "",
-              renamed = "➜",
-              untracked = "★"
+            unstaged = "",
+            staged = "",
+            unmerged = "",
+            renamed = "➜",
+            untracked = "★",
+            deleted = "",
+            ignored = "◌"
+
           },
           folder = {
-              default = "",
-              open = "",
-              empty = "",
-              empty_open = "",
-              symlink = ""
+            default = "",
+            open = "",
+            empty = "",
+            empty_open = "",
+            symlink = ""
           }
         }
       },
