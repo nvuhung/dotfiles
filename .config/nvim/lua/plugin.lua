@@ -13,15 +13,44 @@ return {
   {'norcalli/nvim-colorizer.lua', config = function() require'plugins.nvim-colorizer' end},
 
   -- Comment
-  {'JoosepAlviste/nvim-ts-context-commentstring'},
-  {'tpope/vim-commentary'},
+  { 
+    'numToStr/Comment.nvim',
+    dependencies = {
+      'JoosepAlviste/nvim-ts-context-commentstring'
+    },
+    config = function()
+      require('Comment').setup()
+    end
+  },
 
   -- Git
   {'lewis6991/gitsigns.nvim', config = function() require'plugins.gitsigns' end},
   {'tpope/vim-fugitive'},
 
   -- LSP
-  {'neovim/nvim-lspconfig', config = function() require'plugins.nvim-lspconfig' end},
+  {
+    'neovim/nvim-lspconfig', 
+    dependencies = {
+      'folke/neodev.nvim',
+      'jose-elias-alvarez/null-ls.nvim',
+      'williamboman/mason.nvim',
+      'williamboman/mason-lspconfig.nvim',
+      'WhoIsSethDaniel/mason-tool-installer.nvim'
+    },
+    config = function() 
+      require('mason').setup({ ui = { border = "single" }})
+      -- require'plugins.nvim-lspconfig' 
+      require'plugins.lsp' 
+      require'plugins.null-ls' 
+    end
+  },
+  {
+    'glepnir/lspsaga.nvim',
+    event = 'BufRead',
+    config = function()
+      require'plugins.nvim-lspsaga'
+    end
+  },
   
   -- Surround
   {'tpope/vim-surround'},
@@ -74,6 +103,7 @@ return {
   { 
     'hrsh7th/nvim-cmp', 
     dependencies = {
+     'onsails/lspkind.nvim',
      'hrsh7th/cmp-nvim-lsp',
      'hrsh7th/cmp-buffer',
      'hrsh7th/cmp-path',
@@ -91,10 +121,6 @@ return {
 
   -- Smooth scroll
   {'psliwka/vim-smoothie'},
-
-  -- Outline
-  -- {'simrat39/symbols-outline.nvim', config = require('plugins.symbols-outline')}
-  {'stevearc/aerial.nvim', config = function() require'plugins.aerial' end, event = "VeryLazy"},
 
   --- Highlighting
   {'RRethy/vim-illuminate', config = function() require('plugins.vim-illuminate') end},

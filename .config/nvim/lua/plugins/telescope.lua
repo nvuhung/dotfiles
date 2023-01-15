@@ -13,16 +13,6 @@ ts.setup {
       override_generic_sorter = false,
       override_file_sorter = true,
     },
-    aerial = {
-      -- Display symbols as <root>.<parent>.<symbol>
-      show_nesting = {
-        ['_'] = false, -- This key will be the default
-        json = true,   -- You can set the option for specific filetypes
-        javascript = true,   -- You can set the option for specific filetypes
-        typescript = true,   -- You can set the option for specific filetypes
-        yaml = true,
-      }
-    }
   },
   pickers = {
     live_grep = {
@@ -112,7 +102,6 @@ ts.setup {
 }
 
 ts.load_extension('fzf')
-ts.load_extension('aerial')
 ts.load_extension('changed_files')
 
 -- mappings
@@ -122,7 +111,6 @@ vim.api.nvim_set_keymap('n', '<C-F>', '<cmd>lua require("telescope.builtin").liv
 vim.api.nvim_set_keymap('n', '<C-S-F>', '<cmd>lua require("telescope.builtin").resume()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-B>', '<cmd>lua require("telescope.builtin").buffers()<cr>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>o", ':Telescope aerial<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>cf", ':Telescope changed_files<CR>', {noremap = true, silent = true})
 
 vim.o.termguicolors = true
