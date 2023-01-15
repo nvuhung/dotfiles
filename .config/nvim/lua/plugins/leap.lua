@@ -1,4 +1,3 @@
-return function()
   local leap = require "leap"
   leap.init_highlight(true)
 
@@ -7,4 +6,3 @@ return function()
     -- disable auto-jumping to the first match
     safe_labels = {},
   })
-end

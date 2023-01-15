@@ -1,5 +1,4 @@
 -- default configuration
-return function()
   require('illuminate').configure({
     -- providers: provider used to get references in the buffer, ordered by priority
     providers = {
@@ -37,5 +36,4 @@ return function()
     -- max_file_lines: max number of lines in a file to illuminate
     max_file_lines = nil,
   })
-end
 

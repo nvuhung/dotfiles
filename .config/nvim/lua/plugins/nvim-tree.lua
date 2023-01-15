@@ -1,4 +1,3 @@
-return function()
   -- mappings
   vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader>l", ":NvimTreeRefresh<CR>", { noremap = true, silent = true })
@@ -120,4 +119,3 @@ return function()
       },
     }
   })
-end
