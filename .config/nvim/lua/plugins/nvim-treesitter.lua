@@ -8,6 +8,7 @@ require('nvim-treesitter.configs').setup {
     "css",
     "html",
     "markdown",
+    "prisma",
     "lua"
   },
   auto_install = vim.env.GIT_WORK_TREE == nil, -- otherwise auto-install fails on git commit -a
@@ -72,4 +73,3 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   }
 }
-

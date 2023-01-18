@@ -119,13 +119,34 @@ nvim_lsp.astro.setup {
   capabilities = capabilities
 }
 
+nvim_lsp.stylelint_lsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    stylelintplus = {
+      autoFixOnSave = true,
+      autoFixOnFormat = true,
+    },
+  },
+}
+
+nvim_lsp.prismals.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
-    severity_sort = true,
-  }
+  underline = true,
+  update_in_insert = false,
+  virtual_text = { spacing = 4, prefix = "●" },
+  severity_sort = true,
+}
 )
 
 -- Diagnostic symbols in the sign column (gutter)
