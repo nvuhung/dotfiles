@@ -1,26 +1,26 @@
-{ 
+{
   "filename": {
     "prefix": ["fname"],
     "body": "$TM_FILENAME_BASE"
   },
   "JS React Component With PropTypes": {
     "prefix": "crcp",
-    "body": "import React from 'react';\n\nconst ${1:${TM_FILENAME_BASE}} = ({}) => {\n\treturn (\n\t\t<>\n\t\t\t\n\t\t</>\n\t);\n};\n\n${1:${TM_FILENAME_BASE}}.propTypes = {\n\t$0\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
+    "body": "const ${1:${TM_FILENAME_BASE}} = ({}) => {\n\treturn (\n\t\t<>\n\t\t\t\n\t\t</>\n\t);\n};\n\n${1:${TM_FILENAME_BASE}}.propTypes = {\n\t$0\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
     "description": "Create React Component PropTypes"
   },
   "React Component Without PropTypes": {
     "prefix": "crc",
-    "body": "import React from 'react';\n\nconst ${1:${TM_FILENAME_BASE}} = ({}) => {\n\treturn (\n\t\t<>\n\t\t\t\n\t\t</>\n\t);\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
+    "body": "const ${1:${TM_FILENAME_BASE}} = ({}) => {\n\treturn (\n\t\t<>\n\t\t\t\n\t\t</>\n\t);\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
     "description": "Create React Component"
   },
   "React Typescript Function Component": {
     "prefix": "crf",
-    "body": "import React from 'react';\n\nconst ${1:${TM_FILENAME_BASE}}: React.FC = ({}) => {\n\treturn (\n\t\t<>\n\t\t\t\n\t\t</>\n\t);\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
+    "body": "const ${1:${TM_FILENAME_BASE}}: React.FC = ({}) => {\n\treturn (\n\t\t<>\n\t\t\t\n\t\t</>\n\t);\n};\n\nexport default ${1:${TM_FILENAME_BASE}};",
     "description": "Create React Function Component Typescript"
   },
   "React Native": {
     "prefix": "crn",
-    "body": "import React from 'react';\nimport { View, StyleSheet } from 'react-native';\n\nconst ${1:${TM_FILENAME_BASE}} = ({}) => {\n\treturn (\n\t\t<View>\n\t\t\t\n\t\t</View>\n\t);\n};\n\nconst styles = StyleSheet.create({});\n\nexport default ${1:${TM_FILENAME_BASE}};",
+    "body": "import { View, StyleSheet } from 'react-native';\n\nconst ${1:${TM_FILENAME_BASE}} = ({}) => {\n\treturn (\n\t\t<View>\n\t\t\t\n\t\t</View>\n\t);\n};\n\nconst styles = StyleSheet.create({});\n\nexport default ${1:${TM_FILENAME_BASE}};",
     "description": "Create React Native Component"
   },
   "React Native Class Component": {
