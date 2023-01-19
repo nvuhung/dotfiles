@@ -7,9 +7,42 @@ local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
 end
 
-local cmp = require'cmp'
+local cmp = require 'cmp'
 local lspkind = require("lspkind")
 lspkind.init({})
+local formatForTailwindCSS = function(entry, vim_item)
+  if vim_item.kind == 'Color' and entry.completion_item.documentation then
+    local _, _, r, g, b = string.find(entry.completion_item.documentation, '^rgb%((%d+), (%d+), (%d+)')
+    if r then
+      local color = string.format('%02x', r) .. string.format('%02x', g) .. string.format('%02x', b)
+      local group = 'Tw_' .. color
+      if vim.fn.hlID(group) < 1 then
+        vim.api.nvim_set_hl(0, group, { fg = '#' .. color })
+      end
+      vim_item.kind = "● [Color]"
+      vim_item.kind_hl_group = group
+      return vim_item
+    end
+  end
+  local kind = lspkind.cmp_format({
+    mode = "symbol_text",
+    menu = {
+      luasnip = "[Snip]",
+      nvim_lsp = "[LSP]",
+      nvim_lua = "[Lua]",
+      buffer = "[Buf]",
+      copilot = "[GHub]",
+      crates = "[Crate]",
+      path = "[Path]",
+      cmdline = "[Cmd]",
+      cmdline_history = "[Hist]",
+      git = "[Git]",
+    },
+  })(entry, vim_item)
+  local strings = vim.split(kind.kind, "%s", { trimempty = true })
+  vim_item.kind = " " .. strings[1] .. " "
+  return vim_item
+end
 
 cmp.setup({
   snippet = {
@@ -54,34 +87,20 @@ cmp.setup({
     { name = 'buffer' },
   }),
   formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function (entry, vim_item)
-      local kind = lspkind.cmp_format({
-        mode = "symbol_text",
-        menu = {
-          luasnip = "[Snip]",
-          nvim_lsp = "[LSP]",
-          nvim_lua =  "[Lua]",
-          buffer = "[Buf]",
-          copilot = "[GHub]",
-          crates = "[Crate]",
-          path = "[Path]",
-          cmdline = "[Cmd]",
-          cmdline_history = "[Hist]",
-          git = "[Git]",
-        },
-      })(entry, vim_item)
-      local strings = vim.split(kind.kind, "%s", { trimempty = true })
-      kind.kind = " " .. strings[1] .. " "
-      return kind
-    end
-  },
+    format = lspkind.cmp_format({
+      maxwidth = 50,
+      before = function(entry, vim_item) -- for tailwind css autocomplete
+        vim_item = formatForTailwindCSS(entry, vim_item)
+        return vim_item
+      end
+    })
+  }
 })
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it. 
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
   }, {
     { name = 'buffer' },
   })
