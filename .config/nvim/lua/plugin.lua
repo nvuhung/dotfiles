@@ -86,7 +86,7 @@ return {
   },
 
   -- Auto close and rename tag
-  { 'windwp/nvim-ts-autotag', config = require 'plugins.nvim-ts-autotag' },
+  { 'windwp/nvim-ts-autotag', config = function() require 'plugins.nvim-ts-autotag' end },
 
   -- Treesitter
   { 'nvim-treesitter/nvim-treesitter-refactor' },

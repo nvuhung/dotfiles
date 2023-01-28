@@ -1,5 +1,3 @@
-return function()
-  require('nvim-ts-autotag').setup({
-    filetypes = { 'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue' },
-  })
-end
+require('nvim-ts-autotag').setup({
+  filetypes = { 'html', 'javascript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue' },
+})
