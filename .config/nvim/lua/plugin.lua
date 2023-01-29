@@ -85,6 +85,17 @@ return {
     end
   },
 
+  -- Flutter
+  {
+    'akinsho/flutter-tools.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function()
+      require("plugins.flutter")
+    end
+  },
+
   -- Auto close and rename tag
   { 'windwp/nvim-ts-autotag', config = function() require 'plugins.nvim-ts-autotag' end },
 
