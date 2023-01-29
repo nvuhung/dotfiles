@@ -47,7 +47,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR>', { noremap = true })
 
 -- Replace
-vim.api.nvim_set_keymap('n', '<C-r>', ':%s//g<Left><Left>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Leader>c', ':%s//g<Left><Left>', { noremap = true })
 
 -- Move selected line / block of text in visual mode
 vim.cmd([[xnoremap K :move '<-2<CR>gv-gv]])

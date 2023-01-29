@@ -146,6 +146,11 @@ nvim_lsp.bashls.setup {
   capabilities = capabilities
 }
 
+nvim_lsp.vuels.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = true,
