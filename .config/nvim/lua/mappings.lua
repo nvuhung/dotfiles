@@ -30,8 +30,8 @@ vim.api.nvim_set_keymap('n', '<C-w>', ':Bdelete<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-s>', ':w!<CR>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<C-s>', '<ESC>:w!<CR>', { noremap = true })
 -- Ctrl-Shift-s to save all
-vim.api.nvim_set_keymap('n', '<CS-s>', ':wa!<CR>', { noremap = true, silent =  true })
-vim.api.nvim_set_keymap('i', '<CS-s>', '<ESC>:wa!<CR>', { noremap = true, silent =  true })
+vim.api.nvim_set_keymap('n', '<CS-s>', ':wa!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<CS-s>', '<ESC>:wa!<CR>', { noremap = true, silent = true })
 
 -- Tabbing
 vim.cmd([[vnoremap < <gv]])
@@ -47,7 +47,7 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR>', { noremap = true })
 
 -- Replace
-vim.api.nvim_set_keymap('n', '<C-c>', ':%s//g<Left><Left>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-r>', ':%s//g<Left><Left>', { noremap = true })
 
 -- Move selected line / block of text in visual mode
 vim.cmd([[xnoremap K :move '<-2<CR>gv-gv]])
