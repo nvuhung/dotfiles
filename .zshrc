@@ -11,7 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
   git
   zsh-completions
-  tmux
+  # tmux
   autojump
   git-open
   fast-syntax-highlighting
