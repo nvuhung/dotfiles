@@ -17,15 +17,14 @@ local list = {
   { key = "o", action = "edit" },
 }
 
-require('nvim-tree').setup({
+local status, tree = pcall(require, "nvim-tree")
+
+if (not status) then return end
+tree.setup({
   -- disables netrw completely
   disable_netrw      = true,
   -- hijack netrw window on startup
   hijack_netrw       = true,
-  -- open the tree when running this setup function
-  open_on_setup      = true,
-  -- will not open on setup if the filetype is in this list
-  ignore_ft_on_setup = {},
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab        = false,
   -- hijack the cursor in the tree to put it at the start of the filename
@@ -36,14 +35,7 @@ require('nvim-tree').setup({
   diagnostics        = {
     enable = false
   },
-  -- configuration options for the system open command (`s` in the tree by default)
-  system_open        = {
-    -- the command to run this, leaving nil should work in most cases
-    cmd  = nil,
-    -- the command arguments as a list
-    args = {}
-  },
-
+  -- will not open on setup if the filetype is in this list
   ignore_ft_on_setup = { ".git", ".DS_Store", ".cache", "node_modules" },
 
   filters = {
@@ -115,3 +107,10 @@ require('nvim-tree').setup({
     },
   }
 })
+
+local function open_nvim_tree()
+  -- always open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
