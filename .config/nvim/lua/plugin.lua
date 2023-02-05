@@ -95,7 +95,8 @@ return {
     },
     config = function()
       require("plugins.flutter")
-    end
+    end,
+    event = "VeryLazy"
   },
 
   -- Auto close and rename tag
