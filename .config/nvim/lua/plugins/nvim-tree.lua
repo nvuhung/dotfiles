@@ -22,21 +22,19 @@ local status, tree = pcall(require, "nvim-tree")
 if (not status) then return end
 tree.setup({
   -- disables netrw completely
-  disable_netrw      = true,
+  disable_netrw = true,
   -- hijack netrw window on startup
-  hijack_netrw       = true,
+  hijack_netrw  = true,
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
-  open_on_tab        = false,
+  open_on_tab   = false,
   -- hijack the cursor in the tree to put it at the start of the filename
-  hijack_cursor      = false,
+  hijack_cursor = false,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
-  update_cwd         = false,
+  update_cwd    = false,
   -- show lsp diagnostics in the signcolumn
-  diagnostics        = {
+  diagnostics   = {
     enable = false
   },
-  -- will not open on setup if the filetype is in this list
-  ignore_ft_on_setup = { ".git", ".DS_Store", ".cache", "node_modules" },
 
   filters = {
     dotfiles = false,
