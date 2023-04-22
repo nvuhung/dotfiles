@@ -87,6 +87,39 @@ local function on_attach(bufnr)
 end
 
 tree.setup({
+  update_focused_file = {
+    enable     = true,
+    update_cwd = false,
+  },
+  view = {
+    width = 40,
+  },
+  renderer = {
+    highlight_git = true,
+    icons = {
+      glyphs = {
+        default = "",
+        symlink = "",
+        git = {
+          unstaged = "",
+          staged = "",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "",
+          ignored = "◌"
+
+        },
+        folder = {
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
+          symlink = ""
+        }
+      }
+    },
+  },
   on_attach = on_attach
 })
 
