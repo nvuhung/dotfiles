@@ -23,6 +23,10 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
+### Fix paste highlight
+### https://github.com/zsh-users/zsh-syntax-highlighting/issues/349
+zle_highlight+=(paste:none)
+
 ### Fix slowness of pastes with zsh-syntax-highlighting.zsh
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
 pasteinit() {
