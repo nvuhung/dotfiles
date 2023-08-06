@@ -52,6 +52,10 @@ autoload -U compinit && (compinit &; compinit -C)
 # Search files
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Text navigation keyboard shortcut
+bindkey '^[[1;3D' backward-word # alt-left
+bindkey '^[[1;3C' forward-word # alt-right
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
